@@ -15,4 +15,22 @@
             <link href="http://devdrops.github.io/2015/05/xdebug-netbeans-and-vagrant/"/>
             <updated>2015-05-06</updated>
 	</entry>
+        
+        <entry>
+            <title>Using PHP CS Fixer on NetBeans 8.0</title>
+            <link href="http://devdrops.github.io/2014/09/using-phpcs-fixer-on-netbeans/"/>
+            <updated>2014-09-16</updated>
+	</entry>
+        
+        <entry>
+            <title>MySQL + Windows: Command line tips</title>
+            <link href="http://devdrops.github.io/2014/03/mysql-windows-command-line-tips/"/>
+            <updated>2014-03-29</updated>
+	</entry>
+        
+        <entry>
+            <title>Using PHP_CodeSniffer on NetBeans 7.4</title>
+            <link href="http://devdrops.github.io/2013/12/using-php-codesniffer-on-netbeans/"/>
+            <updated>2013-12-22</updated>
+	</entry>
 </feed>
