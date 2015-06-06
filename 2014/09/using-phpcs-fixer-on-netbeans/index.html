@@ -43,16 +43,102 @@
                     <time datetime="2014-09-16">September 16, 2014</time>
                 </span>
                 
-                
-                
-                <footer class="post-footer">
-                    <section class="author">
-                        <h4>Davi Marcondes Moreira</h4>
-                        <p>
-                            Programmer, music lover and some loose nuts.
-                        </p>
-                    </section>
-                </footer>
+                <section class="post-content">
+            <p>Recently on it's version 8.0 (note: there's a new stable release, <a href="https://netbeans.org/downloads/">NetBeans 8.0.1</a> at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for  <a href="http://cs.sensiolabs.org/">PHP Coding Standards Fixer</a> (A.K.A. PHP CS Fixer).</p>
+
+<h3 id="whatisthephpcsfixerabriefexplanation">What is the PHP CS Fixer: a brief explanation</h3>
+
+<p><img src="https://33.media.tumblr.com/01739a44006c295a9ccd6d73ef72c741/tumblr_nc0vo2OkeT1qjtycto7_1280.png" alt="PHP CS Fixer logo" /></p>
+
+<p>For those who didn't heard about PHP CS Fixer before (/me included), it's pretty easy: it's a tool to evaluate and apply fixes into your PHP code, according to the famous PHP code standards well know as PSR (PHP Standard Recomendation, as described at the <a href="http://www.php-fig.org/">PHP FIG site</a>). PHP CS Fixer is a SensioLabs product, the company behind great quality products as the Symfony framework, <a href="https://security.sensiolabs.org/">SensioLabs Security Checker</a> and many others.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+<li>PHP >= 5.3</li>
+<li>NetBeans 8.0</li>
+</ul>
+
+<p><strong>Note:</strong> At the present moment I'm writing this post, there's still no support available for NetBeans higher than 8.0.</p>
+
+<h3 id="1obtainingthephpcsfixer">1) Obtaining the PHP CS Fixer</h3>
+
+<h4 id="downloadpharfile">Download .phar file</h4>
+
+<p>For this post, we'll pick the .phar file option. You can download it, which contains all the necessary resources to start using it locally into your projects. The download link is located <a href="http://get.sensiolabs.org/php-cs-fixer.phar">here</a>, at the PHP CS Fixer site.</p>
+
+<p><strong>Note:</strong> Other download options and it's detailed instructions can be found at the PHP CS Fixer site.</p>
+
+<h3 id="2netbeanssettings">2) NetBeans settings</h3>
+
+<p>First, you need to install the PHP CS Fixer plugin, which you can obtain through the Plugins download area.</p>
+
+<p>Go to 'Tools > Plugins', and wait for the plugins list to be loaded.</p>
+
+<p><img src="https://31.media.tumblr.com/8717a9bb1a483be6090779c78c1084eb/tumblr_nc0vo2OkeT1qjtycto3_1280.png" alt="NetBeans Plugins window" /></p>
+
+<p>Click on the 'Available Plugins' tab. On the 'Search' box, type 'PHP' and then select on the plugins available list the 'PHP CS Fixer' by checking the check box. Then, click on the Install button, and follow the basic instructions.</p>
+
+<p><img src="https://38.media.tumblr.com/d2c1f41da43d3de8081aa1bd6c1d71c2/tumblr_nc0vo2OkeT1qjtycto4_1280.png" alt="PHP CS Fixer plugin" /></p>
+
+<p>As soon the instalation is finished, go to 'Tools > Options', then select the 'PHP' tab. Now go to 'Frameworks &amp; Tools' tab, and then, select 'PHP CS Fixer' on the left.</p>
+
+<p><img src="https://38.media.tumblr.com/fa3407a83e3a3c96dd4cd9a0e5b81757/tumblr_nc0vo2OkeT1qjtycto6_1280.png" alt="PHP Options window" /></p>
+
+<p>In the 'PHP CS Fixer' field, click on the 'Browse..' button at the right, and then select the .phar file's location.</p>
+
+<p><img src="http://33.media.tumblr.com/7d65ddf1624a2090efb0a263460273c0/tumblr_nc0w8bN3Cf1qjtycto1_1280.png" alt="Selecting the .phar file" /></p>
+
+<p>Once you've done these steps, Click the 'Apply' button on the bottom right corner and it's done. Now you got everything ready to use :-)</p>
+
+<h3 id="3basicusage">3) Basic usage</h3>
+
+<p>You can start using the PHP CS Fixer by choosing a single file, folder or even an entire project. Go to the 'Projects' window, and pick any of these choices using the mouse's right button. Then, select the 'PHP CS Fixer' option and then select 'Fix'.</p>
+
+<p><img src="https://38.media.tumblr.com/dcd15964f9421b643b02b0ffd47fbe40/tumblr_nc0vo2OkeT1qjtycto5_500.png" alt="PHP CS Fixer selection" /></p>
+
+<p>As PHP CS Fixer is a smart tool, if you're using Composer into your project it will ignore the vendor folder (you don't want to perform changes into framework code, right?).</p>
+
+<p>You'll see a window displaying all the output from the modified files into your given selection.</p>
+
+<p><img src="https://33.media.tumblr.com/1892a61f89ae930624528611e6296cee/tumblr_nc0vo2OkeT1qjtycto1_1280.png" alt="Output details" /></p>
+
+<p><strong>Attention:</strong> This action will automatically change your files, so NetBeans wouldn't notice the file changes (Ctrl + Z will not undo these fixes), so please use a Control Version System like Git or Subversion to manage and assure that you'll only accept changes that you approve.</p>
+
+<blockquote>
+  <p>Tip: On the PHP CS Fixer settings, mark the '--verbose' and '--dif' in the '--dry-run', then select 'Fix --dry-run' option to display a list of all fixes that could be applied without changing a single line of code in your files.</p>
+</blockquote>
+
+<p><img src="https://33.media.tumblr.com/1ecb640caaa5250fe9e4eb57d11b1ef6/tumblr_nc0vo2OkeT1qjtycto2_1280.png" alt="PHP CS Fixer --dry-run option" /></p>
+        </section>
+
+        <footer class="post-footer">
+
+            
+                <section class="author">
+                    <h4>Davi Marcondes Moreira</h4>
+                    <p>Programador, fã de música e biruta.
+Programmer, music lover and some loose nuts.</p>
+                </section>
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Using PHP CS Fixer on NetBeans 8.0&url=http://blog-devdrops.rhcloud.com/using-php-cs-fixer-on-netbeans-8-0/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog-devdrops.rhcloud.com/using-php-cs-fixer-on-netbeans-8-0/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog-devdrops.rhcloud.com/using-php-cs-fixer-on-netbeans-8-0/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>                
                 
             </article>
             
