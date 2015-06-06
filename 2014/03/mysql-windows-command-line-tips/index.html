@@ -43,18 +43,80 @@
                     <time datetime="2014-03-29">March 29, 2014</time>
                 </span>
                 
+                <section class="post-content">
+                    <p>On this post, I'll share some handy <a href="http://www.mysql.com/">MySQL</a> commands I've been through in the last months, and now they're a essential part of my daily work <del>and I'm writing them down to never forget them anymore ;-)</del>.</p>
+
+                <blockquote>
+                    <p><strong>Important</strong>: none of these commands below will work unless you've properly have both root access and MySQL command line tools configured on your PATH environment variable.</p>
+                </blockquote>
+
+                <div class="mysql">
+                    <pre><code>mysql -u user -p database_name</code></pre>
+                </div>
+
+                <p>Basic command to connect to a local MySQL server.</p>
+
+                <div class="mysql">
+                    <pre><code>mysqldump -u user -p database_name > C:\path\to\file.sql</code></pre>
+                </div>
+
+                <p>Export all database information (data and structure).</p>
+
+                <div class="mysql">
+                    <pre><code>mysqldump -u user -p database_name --no-data > C:\path\to\file.sql</code></pre>
+                </div>
+
+                <p>Export all database information except data (only structute).</p>
+
+                <div class="mysql">
+                    <pre><code>echo create database database_name | mysql -u user -p</code></pre>
+                </div>
+
+                <p>Using <em>echo</em> command from Windows batch script to create a database. Handy when you need to create a database without graphic tools. Note that you don't need to use quotes neither semicolon.</p>
+
+                <div class="mysql">
+                    <pre><code>mysqldump -u user -p --all-databases > C:\path\to\file.sql</code></pre>
+                </div>
+
+                <p>Dump all information about all databases.</p>
+
+                <div class="mysql">
+                    <pre><code>mysql -u root -p database_name < C:\path\to\file.sql</code></pre>
+                </div>
+
+                <p>Import all information from <em>file.sql</em> into a database.</p>
+
+                <p>Note that all the commands assume that you're handling with a local MySQL server (localhost). If you need to connect to a different host, use <code>-h hostname</code> to perform every command, as <code>mysql -h hostname -u user -p database_name</code>.</p>
+        </section>
+
+        <footer class="post-footer">
+            <section class="author">
+                <h4>Davi Marcondes Moreira</h4>
+                <p>Programador, fã de música e biruta.
+Programmer, music lover and some loose nuts.</p>
+            </section>
+            
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=MySQL + Windows: Command line tips&url=http://devdrops.github.io/2014/03/mysql-windows-command-line-tips"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://devdrops.github.io/2014/03/mysql-windows-command-line-tips"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="http://devdrops.github.io/2014/03/mysql-windows-command-line-tips"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>                
                 
                 
-                <footer class="post-footer">
-                    <section class="author">
-                        <h4>Davi Marcondes Moreira</h4>
-                        <p>
-                            Programmer, music lover and some loose nuts.
-                        </p>
-                    </section>
-                </footer>
-                
-            </article>
+    </article>
             
         </main>
 
