@@ -73,7 +73,7 @@ Consider yourself in the following situation: you have your code base, developed
 </blockquote>
 <h4 id="installing-and-configuring-xdebug">Installing and Configuring Xdebug</h4>
 <p>First of all, you need to install Xdebug. From inside your vagrant box, execute the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install php5-xdebug
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install php5-xdebug
 </code></pre></div><p>This will install the <code>xdebug.so</code> extension file inside of <code>/usr/lib/php5/20121212/</code> path.
 Once the command is complete, check with <code>phpinfo()</code>to find that the extension is correctly installed.</p>
 <p>Then, we have to proceed to edit some basic configuration files:</p>
@@ -83,7 +83,7 @@ Once the command is complete, check with <code>phpinfo()</code>to find that the 
 </ol>
 <p>You can find the <code>20-xdebug.ini</code> file inside of these paths: <code>/etc/php5/cli/conf.d/</code> and <code>/etc/php5/fpm/conf.d/</code>. If you can&rsquo;t find these files, then create them inside of these paths.</p>
 <p>For both <code>20-xdebug.ini</code> files, add the following settings:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">zend_extension=/usr/lib/php5/20121212/xdebug.so
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">zend_extension=/usr/lib/php5/20121212/xdebug.so
 xdebug.default_enable=1
 xdebug.remote_enable=1
 xdebug.remote_connect_back=on
@@ -93,7 +93,7 @@ xdebug.remote_log=/tmp/php5-xdebug.log
 xdebug.idekey=netbeans-xdebug
 </code></pre></div><p>These are parameters for Xdebug to work properly. Remember that the <code>netbeans-xdebug</code> value is designed to follow NetBeans instructions.</p>
 <p>Once the <code>20-xdebug.ini</code> is created/updated, it&rsquo;s time to add more settings for the <code>php.ini</code> files. You may find them in the <code>/etc/php5/cli</code> and <code>/etc/php5/fpm</code> paths. For these files, add the following parameters:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[xdebug]
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[xdebug]
 zend_extension=&#34;/usr/lib/php5/20121212/xdebug.so&#34;
 xdebug.remote_enable=1
 xdebug.remote_host=localhost

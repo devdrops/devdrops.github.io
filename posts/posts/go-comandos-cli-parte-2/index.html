@@ -84,20 +84,20 @@ Para explicar melhor, cabe aqui um exemplo.</p>
 serve para indicar domínios onde deve-se ignorar a ausência e validade de
 certificados HTTPS no ato de obter módulos do mundo externo). Por padrão, na
 versão 1.15, ela vem definida da seguinte forma:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GOINSECURE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">GOINSECURE</span>=<span style="color:#ed9d13">&#34;&#34;</span>
 </code></pre></div><p>Caso você quiser inserir um domínio a ser incluído nessa regra, você pode
 usar a opção <code>-w</code>, que vai inserir o valor desejado conforme o exemplo:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># A sintaxe deve ser VARIAVEL=valor</span>
-go env -w GOINSECURE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;site.com&#34;</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># A sintaxe deve ser VARIAVEL=valor</span>
+go env -w <span style="color:#40ffff">GOINSECURE</span>=<span style="color:#ed9d13">&#34;site.com&#34;</span>
 
-<span style="color:#75715e"># Agora, go env vai exibir GOINSECURE=&#34;site.com&#34;</span>
+<span style="color:#999;font-style:italic"># Agora, go env vai exibir GOINSECURE=&#34;site.com&#34;</span>
 </code></pre></div><p>Podemos passar uma lista de variáveis para alterar o valor.</p>
 <p>Já a opção <code>-u</code> serve para devolver à variável editada por <code>-w</code> seu valor
 original:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># A sintaxe aqui deve ser só VARIAVEL</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># A sintaxe aqui deve ser só VARIAVEL</span>
 go env -u GOINSECURE
 
-<span style="color:#75715e"># Agora, go env vai exibir o valor original, GOINSECURE=&#34;&#34;</span>
+<span style="color:#999;font-style:italic"># Agora, go env vai exibir o valor original, GOINSECURE=&#34;&#34;</span>
 </code></pre></div><p>Lembrando que  <code>-u</code> só funciona para variáveis editadas por <code>-w</code> 😉</p>
 <h3 id="go-fix-packages"><code>go fix [packages]</code></h3>
 <p>Este é um comando muito importante quando desejamos fazer atualizações de versão

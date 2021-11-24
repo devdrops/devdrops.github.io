@@ -62,16 +62,16 @@
 de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por
 padrão tanto do <em>tmux</em> como do <em>tmate</em> são bem mais recentes do que eu estava
 usando:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~ apt-cache show tmux
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~ apt-cache show tmux
 
-<span style="color:#75715e"># Entre várias informações úteis, olha a versão logo ali:</span>
+<span style="color:#999;font-style:italic"># Entre várias informações úteis, olha a versão logo ali:</span>
 Package: tmux
 Architecture: amd64
 Version: 3.0a-2
 
 ~ apt-cache show tmate
 
-<span style="color:#75715e"># E a versão do tmate também:</span>
+<span style="color:#999;font-style:italic"># E a versão do tmate também:</span>
 Package: tmate
 Architecture: amd64
 Version: 2.4.0-1
@@ -79,7 +79,7 @@ Version: 2.4.0-1
 notei que alguma mudança ocorreu entre as versões de tmux que eu usava e a recém
 instalada. Logo ao abrir o programa, notei que a configuração não foi carregada
 corretamente e que havia uma sequência de mensagens:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Omiti o caminho completo do arquivo por motivos óbvios ;)</span>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># Omiti o caminho completo do arquivo por motivos óbvios ;)</span>
 .tmux.conf:120: invalid option: message-bg
 .tmux.conf:121: invalid option: message-fg
 .tmux.conf:122: invalid option: message-command-fg
@@ -123,33 +123,33 @@ unidas.</li>
 parâmetros, declarados um a um e separados por vírgula.</li>
 </ul>
 <p>Bastou então mudar a configuração no meu <code>.tmux.conf</code> disso:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batchfile" data-lang="batchfile"><span style="color:#66d9ef">set</span> -g status-bg colour235
-<span style="color:#66d9ef">set</span> -g status-fg colour6
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batchfile" data-lang="batchfile"><span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g status-bg colour235</span>
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g status-fg colour6</span>
 
-<span style="color:#66d9ef">set</span> -g message-bg colour238
-<span style="color:#66d9ef">set</span> -g message-fg colour191
-<span style="color:#66d9ef">set</span> -g message-command-fg colour33
-<span style="color:#66d9ef">set</span> -g message-command-bg colour237
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g message-bg colour238</span>
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g message-fg colour191</span>
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g message-command-fg colour33</span>
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g message-command-bg colour237</span>
 
-<span style="color:#66d9ef">set</span> -g pane-border-fg colour235
-<span style="color:#66d9ef">set</span> -g pane-active-border-fg colour196
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g pane-border-fg colour235</span>
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g pane-active-border-fg colour196</span>
 
 setw -g mode-bg colour6
 setw -g mode-fg colour235
 
 setw -g window-status-current-bg colour236
 setw -g window-status-current-fg colour156
-<span style="color:#66d9ef">set</span> -g window-status-current-attr bold
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g window-status-current-attr bold</span>
 
 setw -g window-status-bg colour235
 </code></pre></div><p>Para isso:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batchfile" data-lang="batchfile"><span style="color:#66d9ef">set</span> -g status-style bg=colour235,fg=colour6
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batchfile" data-lang="batchfile"><span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g status-style bg</span>=colour235,fg=colour6
 
-<span style="color:#66d9ef">set</span> -g message-style bg=colour239,fg=colour191
-<span style="color:#66d9ef">set</span> -g message-command-style bg=colour237,fg=colour33
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g message-style bg</span>=colour239,fg=colour191
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g message-command-style bg</span>=colour237,fg=colour33
 
-<span style="color:#66d9ef">set</span> -g pane-border-style fg=colour235
-<span style="color:#66d9ef">set</span> -g pane-active-border-style fg=colour196
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g pane-border-style fg</span>=colour235
+<span style="color:#6ab825;font-weight:bold">set</span> <span style="color:#40ffff">-g pane-active-border-style fg</span>=colour196
 
 setw -g mode-style bg=colour6,fg=colour235
 
