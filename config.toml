@@ -14,15 +14,26 @@ googleAnalytics = "UA-77125737-1"
 
 [markup]
   defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+  [markup.goldmark.extensions]
+    definitionList = true
+    footnote = true
+    linkify = true
+    strikethrough = true
+    table = true
+    taskList = true
+    typographer = true
   [markup.highlight]
+    anchorLineNos = false
     codeFences = true
-    guessSyntax = false
-    hl_lines = ""
+    guessSyntax = true
+    hl_lines = ''
+    lineAnchors = ''
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
     noClasses = true
-    style = "monokai"
+    style = 'native'
     tabWidth = 4
 
 [author]
