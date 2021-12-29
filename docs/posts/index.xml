@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on DevDrops</title>
-    <link>http://devdrops.me/posts/</link>
+    <link>https://devdrops.github.io/posts/</link>
     <description>Recent content in Posts on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://devdrops.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go: comandos CLI, parte 2</title>
-      <link>http://devdrops.me/posts/go-comandos-cli-parte-2/</link>
+      <link>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</link>
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/go-comandos-cli-parte-2/</guid>
+      <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</guid>
       <description>Este texto faz parte de uma série de 3 materiais no assunto:
  Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet  Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.15.6 linux/amd64, obtida pela imagem oficial da linguagem Go no Docker Hub.
 Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da ferramenta CLI.</description>
@@ -20,10 +20,10 @@ Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da
     
     <item>
       <title>Go: comandos CLI, parte 1</title>
-      <link>http://devdrops.me/posts/go-comandos-cli-parte-1/</link>
+      <link>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/go-comandos-cli-parte-1/</guid>
+      <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</guid>
       <description>Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de comandos disponíveis pela ferramenta CLI Go.
 Este texto faz parte de uma série de 3 materiais no assunto:
  Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet  Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.</description>
@@ -31,10 +31,10 @@ Este texto faz parte de uma série de 3 materiais no assunto:
     
     <item>
       <title>tmux: Migrando de 2.3.* para 3.*</title>
-      <link>http://devdrops.me/posts/tmux-migrando-de-2.3-para-3/</link>
+      <link>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/tmux-migrando-de-2.3-para-3/</guid>
+      <guid>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</guid>
       <description>Olá!
 Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por padrão tanto do tmux como do tmate são bem mais recentes do que eu estava usando:
 ~ apt-cache show tmux # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2 ~ apt-cache show tmate # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
@@ -42,10 +42,10 @@ Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pess
     
     <item>
       <title>Xdebug, NetBeans and Vagrant</title>
-      <link>http://devdrops.me/posts/xdebug-netbeans-and-vagrant/</link>
+      <link>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</link>
       <pubDate>Wed, 06 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/xdebug-netbeans-and-vagrant/</guid>
+      <guid>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</guid>
       <description>Hi! In this short post I&amp;rsquo;ll describe the steps I&amp;rsquo;ve made, with the great help of a work colleague, on how to achieve the combination of these great tools together: NetBeans, Xdebug and Vagrant.
 The following steps were executed in a vagrant box using Ubuntu, and with the Yosemite as the OS for the hosting machine.
 Xdebug Xdebugis one of the most amazing tools for any PHP developer. Consider yourself in the following situation: you have your code base, developed under some framework, and you have some few bugs while developing new features.</description>
@@ -53,20 +53,20 @@ Xdebug Xdebugis one of the most amazing tools for any PHP developer. Consider yo
     
     <item>
       <title>Using PHP CS Fixer on NetBeans 8.0</title>
-      <link>http://devdrops.me/posts/using-php-cs-fixer-on-netbeans-8.0/</link>
+      <link>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</link>
       <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/using-php-cs-fixer-on-netbeans-8.0/</guid>
+      <guid>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</guid>
       <description>Recently on it&amp;rsquo;s version 8.0 (note: there&amp;rsquo;s a new stable release, NetBeans 8.0.1 at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for PHP Coding Standards Fixer (A.K.A. PHP CS Fixer).
 What is the PHP CS Fixer: a brief explanation For those who didn&amp;rsquo;t heard about PHP CS Fixer before (/me included), it&amp;rsquo;s pretty easy: it&amp;rsquo;s a tool to evaluate and apply fixes into your PHP code, according to the famous PHP code standards well know as PSR (PHP Standard Recomendation, as described at the PHP FIG site).</description>
     </item>
     
     <item>
       <title>MySQL &#43; Windows: Command Line Tips</title>
-      <link>http://devdrops.me/posts/mysql-windows-command-line-tips/</link>
+      <link>https://devdrops.github.io/posts/mysql-windows-command-line-tips/</link>
       <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/mysql-windows-command-line-tips/</guid>
+      <guid>https://devdrops.github.io/posts/mysql-windows-command-line-tips/</guid>
       <description>On this post, I&amp;rsquo;ll share some handy MySQL commands I&amp;rsquo;ve been through in the last months, and now they&amp;rsquo;re a essential part of my daily work and I&amp;rsquo;m writing them down to never forget them anymore ;-).
  Important: none of these commands below will work unless you&amp;rsquo;ve properly have both root access and MySQL command line tools configured on your PATH environment variable.
  mysql -u user -p database_name Basic command to connect to a local MySQL server.</description>
@@ -74,10 +74,10 @@ What is the PHP CS Fixer: a brief explanation For those who didn&amp;rsquo;t hea
     
     <item>
       <title>Using PHP_CodeSniffer on NetBeans 7.4</title>
-      <link>http://devdrops.me/posts/using-php-codesniffer-on-netbeans-7.4/</link>
+      <link>https://devdrops.github.io/posts/using-php-codesniffer-on-netbeans-7.4/</link>
       <pubDate>Sun, 22 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://devdrops.me/posts/using-php-codesniffer-on-netbeans-7.4/</guid>
+      <guid>https://devdrops.github.io/posts/using-php-codesniffer-on-netbeans-7.4/</guid>
       <description>In this first post, I&amp;rsquo;ll share my basic experience in how to use an important tool to assure and verify your code quality.
 Special thanks to Tomas Mysik and Adam McAuley for their efforts on Bugzilla and the NetBeans PHP Mailing List, which helped me a lot on how to use these combined tools, and then create this tutorial.
 Requirements  PHP &amp;gt;= 5.3 NetBeans 7.4 PEAR  Note: I&amp;rsquo;m assuming you already have an HTTP Server (like Apache) installed and ready for action.</description>

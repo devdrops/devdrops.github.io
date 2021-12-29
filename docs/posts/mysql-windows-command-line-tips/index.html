@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.84.3" />
+  <meta name="generator" content="Hugo 0.91.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
   <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/hyde.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/authorbox.min.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/position.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -34,7 +34,7 @@
 <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="http://devdrops.me/"><h1>DevDrops</h1></a>
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
       <p class="lead">
       Site pessoal sobre tecnologia e outras coisas mais ;D
       </p>
@@ -61,17 +61,17 @@
 <blockquote>
 <p><strong>Important</strong>: none of these commands below will work unless you&rsquo;ve properly have both root access and MySQL command line tools configured on your PATH environment variable.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysql -u user -p database_name
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysql -u user -p database_name
 </code></pre></div><p>Basic command to connect to a local MySQL server.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p database_name &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p database_name &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
 </code></pre></div><p>Export all database information (data and structure).</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p database_name --no-data &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p database_name --no-data &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
 </code></pre></div><p>Export all database information except data (only structute).</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#24909d">echo</span> create database database_name | mysql -u user -p
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#24909d">echo</span> create database database_name | mysql -u user -p
 </code></pre></div><p>Using <em>echo</em> command from Windows batch script to create a database. Handy when you need to create a database without graphic tools. Note that you don&rsquo;t need to use quotes neither semicolon.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p --all-databases &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p --all-databases &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
 </code></pre></div><p>Dump all information about all databases.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysql -u root -p database_name &lt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysql -u root -p database_name &lt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
 </code></pre></div><p>Import all information from <em>file.sql</em> into a database.</p>
 <p>Note that all the commands assume that you&rsquo;re handling with a local MySQL server (localhost). If you need to connect to a different host, use <code>-h hostname</code> to perform every command, as <code>mysql -h hostname -u user -p database_name</code>.</p>
 

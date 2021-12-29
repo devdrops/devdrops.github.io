@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.84.3" />
+  <meta name="generator" content="Hugo 0.91.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
   <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/hyde.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/authorbox.min.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/position.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -34,7 +34,7 @@
 <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="http://devdrops.me/"><h1>DevDrops</h1></a>
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
       <p class="lead">
       Site pessoal sobre tecnologia e outras coisas mais ;D
       </p>
@@ -84,17 +84,17 @@ Para explicar melhor, cabe aqui um exemplo.</p>
 serve para indicar domínios onde deve-se ignorar a ausência e validade de
 certificados HTTPS no ato de obter módulos do mundo externo). Por padrão, na
 versão 1.15, ela vem definida da seguinte forma:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">GOINSECURE</span>=<span style="color:#ed9d13">&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">GOINSECURE</span>=<span style="color:#ed9d13">&#34;&#34;</span>
 </code></pre></div><p>Caso você quiser inserir um domínio a ser incluído nessa regra, você pode
 usar a opção <code>-w</code>, que vai inserir o valor desejado conforme o exemplo:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># A sintaxe deve ser VARIAVEL=valor</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># A sintaxe deve ser VARIAVEL=valor</span>
 go env -w <span style="color:#40ffff">GOINSECURE</span>=<span style="color:#ed9d13">&#34;site.com&#34;</span>
 
 <span style="color:#999;font-style:italic"># Agora, go env vai exibir GOINSECURE=&#34;site.com&#34;</span>
 </code></pre></div><p>Podemos passar uma lista de variáveis para alterar o valor.</p>
 <p>Já a opção <code>-u</code> serve para devolver à variável editada por <code>-w</code> seu valor
 original:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># A sintaxe aqui deve ser só VARIAVEL</span>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-style:italic"># A sintaxe aqui deve ser só VARIAVEL</span>
 go env -u GOINSECURE
 
 <span style="color:#999;font-style:italic"># Agora, go env vai exibir o valor original, GOINSECURE=&#34;&#34;</span>

@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.84.3" />
+  <meta name="generator" content="Hugo 0.91.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
   <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/hyde.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/authorbox.min.css">
-  <link type="text/css" rel="stylesheet" href="http://devdrops.me/css/position.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -34,7 +34,7 @@
 <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="http://devdrops.me/"><h1>DevDrops</h1></a>
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
       <p class="lead">
       Site pessoal sobre tecnologia e outras coisas mais ;D
       </p>
@@ -73,7 +73,7 @@ Consider yourself in the following situation: you have your code base, developed
 </blockquote>
 <h4 id="installing-and-configuring-xdebug">Installing and Configuring Xdebug</h4>
 <p>First of all, you need to install Xdebug. From inside your vagrant box, execute the following command:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install php5-xdebug
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install php5-xdebug
 </code></pre></div><p>This will install the <code>xdebug.so</code> extension file inside of <code>/usr/lib/php5/20121212/</code> path.
 Once the command is complete, check with <code>phpinfo()</code>to find that the extension is correctly installed.</p>
 <p>Then, we have to proceed to edit some basic configuration files:</p>
@@ -83,7 +83,7 @@ Once the command is complete, check with <code>phpinfo()</code>to find that the 
 </ol>
 <p>You can find the <code>20-xdebug.ini</code> file inside of these paths: <code>/etc/php5/cli/conf.d/</code> and <code>/etc/php5/fpm/conf.d/</code>. If you can&rsquo;t find these files, then create them inside of these paths.</p>
 <p>For both <code>20-xdebug.ini</code> files, add the following settings:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">zend_extension=/usr/lib/php5/20121212/xdebug.so
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">zend_extension=/usr/lib/php5/20121212/xdebug.so
 xdebug.default_enable=1
 xdebug.remote_enable=1
 xdebug.remote_connect_back=on
@@ -93,7 +93,7 @@ xdebug.remote_log=/tmp/php5-xdebug.log
 xdebug.idekey=netbeans-xdebug
 </code></pre></div><p>These are parameters for Xdebug to work properly. Remember that the <code>netbeans-xdebug</code> value is designed to follow NetBeans instructions.</p>
 <p>Once the <code>20-xdebug.ini</code> is created/updated, it&rsquo;s time to add more settings for the <code>php.ini</code> files. You may find them in the <code>/etc/php5/cli</code> and <code>/etc/php5/fpm</code> paths. For these files, add the following parameters:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[xdebug]
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[xdebug]
 zend_extension=&#34;/usr/lib/php5/20121212/xdebug.so&#34;
 xdebug.remote_enable=1
 xdebug.remote_host=localhost
