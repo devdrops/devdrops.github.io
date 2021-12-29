@@ -1,4 +1,4 @@
-baseURL = "http://devdrops.github.io/"
+baseURL = "https://devdrops.github.io/"
 title = "DevDrops"
 enableRobotsTXT = true
 enableEmoji = true
