@@ -3,7 +3,7 @@ title = "DevDrops"
 enableRobotsTXT = true
 enableEmoji = true
 theme = "hyde"
-publishDir = "public"
+publishDir = "posts"
 languageCode = "pt-br"
 defaultContentLanguage = "pt-br"
 
