@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.91.0" />
+  <meta name="generator" content="Hugo 0.95.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@
       </ul>
     </nav>
 
-    <p>Davi Moreira - @devdrops<br /> &copy; 2021. Todos os direitos reservados.</p>
+    <p>Davi Moreira - @devdrops<br /> &copy; 2022. Todos os direitos reservados.</p>
   </div>
 </aside>
 
@@ -61,18 +61,18 @@
 <blockquote>
 <p><strong>Important</strong>: none of these commands below will work unless you&rsquo;ve properly have both root access and MySQL command line tools configured on your PATH environment variable.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysql -u user -p database_name
-</code></pre></div><p>Basic command to connect to a local MySQL server.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p database_name &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
-</code></pre></div><p>Export all database information (data and structure).</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p database_name --no-data &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
-</code></pre></div><p>Export all database information except data (only structute).</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#24909d">echo</span> create database database_name | mysql -u user -p
-</code></pre></div><p>Using <em>echo</em> command from Windows batch script to create a database. Handy when you need to create a database without graphic tools. Note that you don&rsquo;t need to use quotes neither semicolon.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysqldump -u user -p --all-databases &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
-</code></pre></div><p>Dump all information about all databases.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mysql -u root -p database_name &lt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
-</code></pre></div><p>Import all information from <em>file.sql</em> into a database.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mysql -u user -p database_name
+</span></span></code></pre></div><p>Basic command to connect to a local MySQL server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mysqldump -u user -p database_name &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+</span></span></code></pre></div><p>Export all database information (data and structure).</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mysqldump -u user -p database_name --no-data &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+</span></span></code></pre></div><p>Export all database information except data (only structute).</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#24909d">echo</span> create database database_name | mysql -u user -p
+</span></span></code></pre></div><p>Using <em>echo</em> command from Windows batch script to create a database. Handy when you need to create a database without graphic tools. Note that you don&rsquo;t need to use quotes neither semicolon.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mysqldump -u user -p --all-databases &gt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+</span></span></code></pre></div><p>Dump all information about all databases.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mysql -u root -p database_name &lt; C:<span style="color:#ed9d13">\p</span>ath<span style="color:#ed9d13">\t</span>o<span style="color:#ed9d13">\f</span>ile.sql
+</span></span></code></pre></div><p>Import all information from <em>file.sql</em> into a database.</p>
 <p>Note that all the commands assume that you&rsquo;re handling with a local MySQL server (localhost). If you need to connect to a different host, use <code>-h hostname</code> to perform every command, as <code>mysql -h hostname -u user -p database_name</code>.</p>
 
 </div>

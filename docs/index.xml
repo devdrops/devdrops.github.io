@@ -6,7 +6,17 @@
     <description>Recent content on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysqldump de um container Docker</title>
+      <link>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</guid>
+      <description>Este texto é uma tradução de um escrito que fiz em 2016, em inglês, e até hoje ainda recebe comentários. Por isso, decidi traduzir para Português do Brasil, mas, se quiser conferir o original, o link é este aqui. Para melhorar o entendimento, vou adicionar alguns comentários e explicações a mais, que possam enriquecer as informações.
+ Antes de prosseguir Este tutorial parte do princípio que você tem Docker instalado corretamente, com pelo menos uma imagem do banco de dados MySQL, em um ambiente do SO Linux.</description>
+    </item>
+    
     <item>
       <title>Go: comandos CLI, parte 2</title>
       <link>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</link>
@@ -37,7 +47,7 @@ Este texto faz parte de uma série de 3 materiais no assunto:
       <guid>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</guid>
       <description>Olá!
 Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por padrão tanto do tmux como do tmate são bem mais recentes do que eu estava usando:
-~ apt-cache show tmux # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2 ~ apt-cache show tmate # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
+~ apt-cache show tmux  # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2  ~ apt-cache show tmate  # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
     </item>
     
     <item>

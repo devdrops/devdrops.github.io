@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.91.0" />
+  <meta name="generator" content="Hugo 0.95.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@
       </ul>
     </nav>
 
-    <p>Davi Moreira - @devdrops<br /> &copy; 2021. Todos os direitos reservados.</p>
+    <p>Davi Moreira - @devdrops<br /> &copy; 2022. Todos os direitos reservados.</p>
   </div>
 </aside>
 
@@ -69,8 +69,8 @@
 <h4 id="1-php_codesniffer">1) PHP_CodeSniffer</h4>
 <p>It&rsquo;s a powerfull tool to verify if your code attends to a specific set of rules, contained on a <em>standard</em>. It can also be used thought prompt or command line.</p>
 <p>To install this tool, we&rsquo;ll use <em>Composer</em>, the modern package manager for PHP tools and projects. I&rsquo;ll consider that you already have Composer installed and ready for action, so fire up your terminal (DOS on Windows) and execute the command below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">composer global require <span style="color:#ed9d13">&#34;squizlabs/php_codesniffer=*&#34;</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>composer global require <span style="color:#ed9d13">&#34;squizlabs/php_codesniffer=*&#34;</span>
+</span></span></code></pre></div><blockquote>
 <p>Tip: the directive global will provide the installed tool for all environments. Just remember to check that you have the <em>~/.composer/vendor/bin/</em> in your <em>PATH</em>, on Windows by checking the environment variables.</p>
 </blockquote>
 <p>To finally check, run <code>phpcs -i</code>, where the directive <code>-i</code> asks for PHP_CodeSniffer to show alll the standards installed on your machine. You should see this message as a confirmation, as the same command on a Linux environment:</p>

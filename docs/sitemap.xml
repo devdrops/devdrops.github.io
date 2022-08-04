@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://devdrops.github.io/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</loc>
-    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
+    <loc>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</loc>
