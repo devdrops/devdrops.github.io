@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PostgreSQL: Dicas para Uso de Arquivos SQL &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2022. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>PostgreSQL: Dicas para Uso de Arquivos SQL</h1>
+  
+  
+  <time datetime=2022-08-03T00:00:00Z class="post-date">2022-08-03</time>
+  
+  <p>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL
+através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar
+esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!</p>
+<p>Ao final deste texto, você poderá:</p>
+<ul>
+<li>Criar banco de dados e tabelas apenas se os mesmos não existirem;</li>
+<li>Selecionar em qual banco de dados as tabelas serão criadas;</li>
+<li>Trabalhar com campos incrementais e valores padrão;</li>
+<li>Trabalhar com timezones;</li>
+<li>Trabalhar com criação automática de UUIDs;</li>
+<li>Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</li>
+</ul>
+<hr>
+<h2 id="antes-de-prosseguir">Antes de Prosseguir</h2>
+<p>As dicas aqui escritas foram feitas usando banco de dados
+<a href="https://www.postgresql.org/">PostgreSQL</a>, usando imagens
+<a href="https://www.docker.com/">Docker</a> com
+<a href="https://docs.docker.com/compose/">Docker Compose</a>. Os mesmos comandos puros de
+PostgreSQL devem funcionar da mesma forma, sem problemas, apenas fazendo poucas
+adaptações.</p>
+<p>E outro detalhe muito importante: <strong>eu não sou uma pessoa especialista em bancos
+de dados</strong>. Apenas trabalho com desenvolvimento backend da melhor forma
+possível. Se prefere aprender dicas com quem manja mesmo do assunto, eu
+recomendo demais as seguintes fontes:</p>
+<ul>
+<li><a href="https://www.postgresqltutorial.com/">PostgreSQL Tutorial</a> é um site em inglês
+cheio de dicas muito úteis.</li>
+<li><a href="http://db4beginners.com/">Db4Beginners</a> é o blog da mestra (pois mestrado)
+<a href="https://www.linkedin.com/in/danimonteirodba">Dani Monteiro</a>, para mim a pessoa
+referência em banco de dados aqui no Brasil.</li>
+</ul>
+<hr>
+<h2 id="vamos-por-partes">Vamos por Partes</h2>
+<h3 id="a-ideia">A Ideia</h3>
+<p>Na situação, precisava de uma forma de criar/recriar o banco de dados através de
+um único arquivo SQL, em um ambiente local com Docker e Docker Compose, de forma
+que qualquer pessoa pudesse executar um só comando para cumprir essa tarefa com
+100% de sucesso.</p>
+<p>Bora lá? 😉</p>
+<h3 id="criando-o-ambiente-com-docker-e-docker-compose">Criando o Ambiente com Docker e Docker Compose</h3>
+<p>Primeiro, eu precisava do ambiente com banco de dados onde a tarefa seria
+executada. Para isso, criei o arquivo <code>docker-compose.yml</code> da seguinte forma:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">version</span>:<span style="color:#666"> </span><span style="color:#ed9d13">&#34;3.7&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">services</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">db</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic"># Uma imagem oficial de PostgreSQL, na versão 9.6</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">image</span>:<span style="color:#666"> </span>postgres:9.6<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic"># Volume apenas para persistir os dados</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">volumes</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">            </span>- ./data:/var/lib/postgresql<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic"># Porta exposta para comunicação a partir do host</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">ports</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">            </span>- <span style="color:#ed9d13">&#34;5432:5432&#34;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#999;font-style:italic"># Arquivo contendo variáveis de ambiente importantes</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">env_file</span>:<span style="color:#666"> </span>./.env<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">volumes</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#999;font-style:italic"># Instruções fundamentais para o uso do volume</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">data</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">driver</span>:<span style="color:#666"> </span><span style="color:#ed9d13">&#39;local&#39;</span><span style="color:#666">
+</span></span></span></code></pre></div><p>O arquivo acima permite que você tenha uma imagem Docker do PostgreSQL, na
+versão 9.6, compartilhando a porta padrão para sua máquina host.</p>
+<p>Para completar, também criei o arquivo <code>.env</code>, com variáveis de ambiente
+fundamentais para uso com Docker, conforme abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># Coloque aqui o valor para o usuário padrão do PostgreSQL
+</span></span><span style="display:flex;"><span>POSTGRES_USER=DBUSER
+</span></span><span style="display:flex;"><span># E coloque aqui a senha desse usuário padrão
+</span></span><span style="display:flex;"><span>POSTGRES_PASSWORD=PREULA
+</span></span></code></pre></div><p>As variáveis ali serão lidas e criadas como variáveis de ambiente apenas no
+container de banco de dados, assim que a imagem do serviço <code>db</code> estiver em
+execução.</p>
+<blockquote>
+<p><strong>Dica</strong>: crie um arquivo <code>.env.sample</code> e adicione o arquivo <code>.env</code> no arquivo
+<code>.gitignore</code>, para evitar que você coloque no seu repositório senhas ou qualquer
+conteúdo sensível 😉</p>
+</blockquote>
+<p>Uma vez criados os arquivos acima, podemos começar a construção do arquivo SQL.</p>
+<h3 id="arquivo-sql-criando-o-banco-de-dados">Arquivo SQL: Criando o Banco de Dados</h3>
+<p>Vamos agora criar o banco de dados. Comece o arquivo SQL assim:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* application será o nome do banco de dados */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DATABASE</span><span style="color:#666"> </span>application;<span style="color:#666">
+</span></span></span></code></pre></div><p>Isso é suficiente para criar o banco, mas apenas da primeira vez. E se o banco
+já existe, e você não quer um erro ao importar o arquivo?</p>
+<p>É comum nos bancos de dados usar a abordagem <em>crie X apenas se não existe</em>,
+porém aí vem uma parte chata do PostgreSQL: para criar bancos de dados, essa
+opção não existe. Ao invés disso, muitos textos na internet indicam uma outra
+abordagem, que funciona assim:</p>
+<ol>
+<li>Veja se o banco existe.</li>
+<li>Se não, crie.</li>
+<li>Se sim, não crie.</li>
+</ol>
+<p>Para fazer isso, vamos fazer uma mudança no nosso arquivo SQL:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* application será o nome do banco de dados */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span><span style="color:#ed9d13">&#39;CREATE DATABASE application&#39;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span>(<span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_database<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>datname<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#ed9d13">&#39;application&#39;</span>)<span style="color:#a61717;background-color:#e3d2d2">\</span>gexec<span style="color:#666">
+</span></span></span></code></pre></div><p>A tabela <code>pg_database</code> contém diversas informações dos bancos de dados, e a
+coluna <code>datname</code> é o nome deles. O que essa instução faz é, primeiro, checar se
+existe o registro <code>application</code> nessa tabela; se não, executa o comando `CREATE
+DATABASE application&rsquo;; se sim, ignora o comando. Tudo em uma só linha (a
+indentação aqui foi só para organizar).</p>
+<p>Dessa forma, podemos repetir a importação quantas vezes a gente quiser que o
+banco só será criado se não existir, sem gerar erros 👍</p>
+<p>O próximo passo é definir o banco onde vamos criar as tabelas.</p>
+<h3 id="arquivo-sql-definindo-qual-banco-de-dados-usar">Arquivo SQL: Definindo Qual Banco de Dados Usar</h3>
+<p>O PostgreSQL vem com muitos utilitários (sério, é um banco de dados muito
+bacana). Um deles, o <code>\c</code>, permite selecionar o banco de dados em um arquivo SQL
+(e também em comandos SQL no terminal).</p>
+<p>Vamos usá-lo no nosso arquivo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* Selecionando o banco application */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#a61717;background-color:#e3d2d2">\</span><span style="color:#6ab825;font-weight:bold">c</span><span style="color:#666"> </span>application<span style="color:#666">
+</span></span></span></code></pre></div><p>De agora em diante, todos os comandos serão realizados no banco <code>application</code>.</p>
+<p>O próximo passo é trabalhar com timezones.</p>
+<h3 id="arquivo-sql-definindo-timezones">Arquivo SQL: Definindo Timezones</h3>
+<p>Uma necessidade era de operar ações no banco de dados com campos do tipo
+<code>TIMESTAMP</code>. Porém, era interessante usar o timezone local nesse tipo, e para
+isso o PostgreSQL tem um tipo especial, <code>TIMESTAMPTZ</code>. Para isso, precisei
+adicionar a seguinte instrução:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* Definindo timezone */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">SET</span><span style="color:#666"> </span>timezone<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#ed9d13">&#39;America/Sao_Paulo&#39;</span>;<span style="color:#666">
+</span></span></span></code></pre></div><p>Com isso, todo campo do tipo <code>TIMESTAMPTZ</code> vai usar o fuso horário
+<code>America/Sao_Paulo</code>.</p>
+<p>Feito isso, a próxima coisa a fazer era facilitar meu trabalho com UUIDs.</p>
+<h3 id="arquivo-sql-gerando-uuids-de-forma-automática">Arquivo SQL: Gerando UUIDs de Forma Automática</h3>
+<p>A aplicação em si precisava de valores
+<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>, também
+conhecidos como <em>Universally Unique IDentifier</em> (IDentificador Único Universal).
+Esse tipo de campo é importante quando queremos oferecer um identificador
+externo para usuários sem expor um identificador de uso exclusivamente interno,
+que pode expor informações sobre a sua aplicação que você não quer que usuários
+saibam, sem perder a funcionalidade de identificar recursos.</p>
+<p>Isso pode ser feito de várias formas. Uma das mais comuns é delegar a criação
+desse campo no código da aplicação, usando libs e etc. Mas eu queria uma
+solução direto no banco de dados, e o PostgreSQL tem uma solução para isso: a
+extensão <a href="https://www.postgresql.org/docs/current/uuid-ossp.html">uuid-ossp</a>.
+Para usá-la, é preciso fazer a declaração abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* UUID */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span>EXTENSION<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IF</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;uuid-ossp&#34;</span>;<span style="color:#666">
+</span></span></span></code></pre></div><p>Felizmente aqui podemos usar a declaração <code>IF NOT EXISTS</code>! Com a linha acima, os
+próximos comandos podem fazer uso das funções dessa extensão.</p>
+<p>E por falar nisso, o próximo passo é justamente criar tabelas.</p>
+<h3 id="arquivo-sql-criando-tabelas">Arquivo SQL: Criando Tabelas</h3>
+<p>Eu busquei uma forma de criar tabelas da forma mais simples possível, delegando
+tarefas mais complexas para o banco de dados. Fiz da seguinte forma:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* Tabela users */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">TABLE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IF</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666"> </span>users<span style="color:#666"> </span>(<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>id<span style="color:#666">         </span><span style="color:#24909d">SERIAL</span><span style="color:#666">       </span><span style="color:#6ab825;font-weight:bold">PRIMARY</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">KEY</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>uuid<span style="color:#666">       </span>uuid<span style="color:#666">         </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DEFAULT</span><span style="color:#666"> </span>uuid_generate_v4<span style="color:#666"> </span>(),<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>name<span style="color:#666">       </span><span style="color:#24909d">VARCHAR</span>(<span style="color:#3677a9">100</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>document<span style="color:#666">   </span><span style="color:#24909d">CHAR</span>(<span style="color:#3677a9">11</span>)<span style="color:#666">     </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>created_on<span style="color:#666"> </span>TIMESTAMPTZ<span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DEFAULT</span><span style="color:#666"> </span>NOW()<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span>);<span style="color:#666">
+</span></span></span></code></pre></div><p>O que está acontecendo:</p>
+<ul>
+<li>Cria-se uma tabela, chamada <code>users</code>, apenas se a mesma não existir.</li>
+<li>Nela, temos um campo <code>id</code> que é declarado como <code>SERIAL</code>, uma forma mais
+simples de dizer que é de valor numérico inteiro e auto incrementável. E também,
+esse campo é a chave primária da tabela.</li>
+<li>Depois, temos o campo <code>uuid</code>, que será o identificador externo de cada
+registro. Esse campo é do tipo <code>uuid</code>, de valor único, e onde o valor padrão
+será obtido pela função <code>uuid_generate_v4()</code>, vinda da extensão <code>uuid-ossp</code>.</li>
+<li>Os campos <code>name</code> e <code>document</code> são campos comuns dos tipos <code>VARCHAR</code> e <code>CHAR</code>.</li>
+<li>E o campo <code>created_on</code> é do tipo <code>TIMESTAMPTZ</code>, influenciado pela declaração
+de fuso horário. Seu valor padrão é a data e hora atuais.</li>
+</ul>
+<p>Dessa forma, posso fazer comandos de <code>INSERT</code> da seguinte forma:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">INSERT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">INTO</span><span style="color:#666"> </span>users<span style="color:#666"> </span>(name,<span style="color:#666"> </span>document)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">VALUES</span><span style="color:#666"> </span>(<span style="color:#ed9d13">&#39;José das Couves&#39;</span>,<span style="color:#666"> </span><span style="color:#ed9d13">&#39;0111406&#39;</span>);<span style="color:#666">
+</span></span></span></code></pre></div><p>Informando apenas <code>name</code> e <code>document</code>, enquanto o banco cria os demais valores
+para mim. Olha só:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">INSERT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">INTO</span><span style="color:#666"> </span>users<span style="color:#666"> </span>(name,<span style="color:#666"> </span>document)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">VALUES</span><span style="color:#666"> </span>(<span style="color:#ed9d13">&#39;José das Couves&#39;</span>,<span style="color:#666"> </span><span style="color:#ed9d13">&#39;0111406&#39;</span>)<span style="color:#666"> </span>RETURNING<span style="color:#666"> </span>*;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"> </span>id<span style="color:#666"> </span>|<span style="color:#666">                 </span>uuid<span style="color:#666">                 </span>|<span style="color:#666">      </span>name<span style="color:#666">       </span>|<span style="color:#666">  </span>document<span style="color:#666">   </span>|<span style="color:#666"> </span>created_on<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">----+--------------------------------------+-----------------+-------------+-------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"></span><span style="color:#666">  </span><span style="color:#3677a9">1</span><span style="color:#666"> </span>|<span style="color:#666"> </span>b758aac0-ddd1-<span style="color:#3677a9">42</span>e7-a6da-ccd7a0173857<span style="color:#666"> </span>|<span style="color:#666"> </span>José<span style="color:#666"> </span>das<span style="color:#666"> </span>Couves<span style="color:#666"> </span>|<span style="color:#666"> </span><span style="color:#3677a9">0111406</span><span style="color:#666">     </span>|<span style="color:#666"> </span><span style="color:#3677a9">2022</span>-<span style="color:#3677a9">08</span>-<span style="color:#3677a9">04</span><span style="color:#666"> </span><span style="color:#3677a9">03</span>:<span style="color:#3677a9">16</span>:<span style="color:#3677a9">15</span>.<span style="color:#3677a9">822798</span>+<span style="color:#3677a9">00</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span>(<span style="color:#3677a9">1</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">row</span>)<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">INSERT</span><span style="color:#666"> </span><span style="color:#3677a9">0</span><span style="color:#666"> </span><span style="color:#3677a9">1</span><span style="color:#666">
+</span></span></span></code></pre></div><h3 id="arquivo-sql-resultado-do-arquivo">Arquivo SQL: Resultado do Arquivo</h3>
+<p>Com todas as alterações acima, nosso arquivo SQL ficou assim:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* application será o nome do banco de dados */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span><span style="color:#ed9d13">&#39;CREATE DATABASE application&#39;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">		</span>(<span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_database<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>datname<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#ed9d13">&#39;application&#39;</span>)<span style="color:#a61717;background-color:#e3d2d2">\</span>gexec<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* Selecionando o banco application */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#a61717;background-color:#e3d2d2">\</span><span style="color:#6ab825;font-weight:bold">c</span><span style="color:#666"> </span>application<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* Definindo timezone */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">SET</span><span style="color:#666"> </span>timezone<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#ed9d13">&#39;America/Sao_Paulo&#39;</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* UUID */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span>EXTENSION<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IF</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;uuid-ossp&#34;</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* Tabela users */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">TABLE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IF</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666"> </span>users<span style="color:#666"> </span>(<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span>id<span style="color:#666">         </span><span style="color:#24909d">SERIAL</span><span style="color:#666">       </span><span style="color:#6ab825;font-weight:bold">PRIMARY</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">KEY</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span>uuid<span style="color:#666">       </span>uuid<span style="color:#666">         </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DEFAULT</span><span style="color:#666"> </span>uuid_generate_v4<span style="color:#666"> </span>(),<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span>name<span style="color:#666">       </span><span style="color:#24909d">VARCHAR</span>(<span style="color:#3677a9">100</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span>document<span style="color:#666">   </span><span style="color:#24909d">CHAR</span>(<span style="color:#3677a9">11</span>)<span style="color:#666">     </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span>created_on<span style="color:#666"> </span>TIMESTAMPTZ<span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DEFAULT</span><span style="color:#666"> </span>NOW()<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span>);<span style="color:#666">
+</span></span></span></code></pre></div><p>Agora, finalmente, como podemos importar o arquivo para cumprir sua tarefa.</p>
+<h3 id="arquivo-sql-importando-para-o-container-docker">Arquivo SQL: Importando para o Container Docker</h3>
+<p>Com o ambiente em execução, podemos executar o comando abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker-compose <span style="color:#24909d">exec</span> -T db psql &lt; ./database.sql -U DBUSER
+</span></span></code></pre></div><p>O comando acima vai executar a instrução no container em execução. É importante
+usar ali o usuário informado no arquivo <code>.env</code>, pois esse usuário terá
+privilégios para todos os comandos do arquivo.</p>
+<p>Ao executar o comando acima, podemos ver o seguinte resultado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>CREATE DATABASE
+</span></span><span style="display:flex;"><span>You are now connected to database <span style="color:#ed9d13">&#34;application&#34;</span> as user <span style="color:#ed9d13">&#34;DBUSER&#34;</span>.
+</span></span><span style="display:flex;"><span>SET
+</span></span><span style="display:flex;"><span>CREATE EXTENSION
+</span></span><span style="display:flex;"><span>CREATE TABLE
+</span></span></code></pre></div><p>E, se você repetir o comando ainda com o ambiente em execução:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>You are now connected to database <span style="color:#ed9d13">&#34;application&#34;</span> as user <span style="color:#ed9d13">&#34;DBUSER&#34;</span>.
+</span></span><span style="display:flex;"><span>SET
+</span></span><span style="display:flex;"><span>NOTICE:  extension <span style="color:#ed9d13">&#34;uuid-ossp&#34;</span> already exists, skipping
+</span></span><span style="display:flex;"><span>CREATE EXTENSION
+</span></span><span style="display:flex;"><span>NOTICE:  relation <span style="color:#ed9d13">&#34;users&#34;</span> already exists, skipping
+</span></span><span style="display:flex;"><span>CREATE TABLE
+</span></span></code></pre></div><p>De forma segura, o comando foi executado sem sobrescrever nada, e sem gerar
+erros 🎉</p>
+
+</div>
+
+  
+  
+  
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+  </div>
+</div>
+
+  
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>

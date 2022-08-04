@@ -6,7 +6,18 @@
     <description>Recent content in Posts on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL: Dicas para Uso de Arquivos SQL</title>
+      <link>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
+      <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
+Ao final deste texto, você poderá:
+ Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+    </item>
+    
     <item>
       <title>Mysqldump de um container Docker</title>
       <link>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</link>
