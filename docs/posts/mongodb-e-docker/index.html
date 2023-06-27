@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MongoDB e Docker &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2023. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>MongoDB e Docker</h1>
+  
+  
+  <time datetime=2023-06-27T00:00:00Z class="post-date">2023-06-27</time>
+  
+  <p>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.</p>
+<h2 id="antes-de-seguir">Antes de Seguir&hellip;</h2>
+<p>Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.</p>
+<h2 id="a-situação">A Situação</h2>
+<p>Eu queria usar o <code>mongosh</code> via terminal em uma imagem Docker, para executar comandos apenas via linha de comando.</p>
+<p>Fui atrás de uma imagem que tivesse o que precisava, e escolhi a
+<a href="https://hub.docker.com/r/mongodb/mongodb-community-server">mongodb/mongodb-community-server</a>. Porém, ao executá-la,
+percebi que o entrypoint (comando configurado para iniciar a execução da imagem) já estava definido para inicializar o
+banco de dados, o que impedia de usar o <code>mongosh</code> &ldquo;de cara&rdquo;. Sim, eu poderia driblar o entrypoint, mas aí eu perderia a
+inicialização automática do <code>mongod</code> e outras dependências, o que iria atrapalhar tudo.</p>
+<p>Tentei outras formas até finalmente conseguir o que queria, com os comandos abaixo:</p>
+<ol>
+<li>Criei uma network para que as imagens Docker &ldquo;conversem&rdquo; entre si:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker network create mongodb-network
+</span></span></code></pre></div><ol start="2">
+<li>Iniciei a execução da imagem de MongoDB que será o meu servidor (onde os comandos terão efeito), em modo desanexado
+(<em>detached</em>), usando a network criada no passo anterior e expondo a porta padrão <strong>27017</strong>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name mongodb-server --network mongodb-network -ti --rm -p 27017:27017 mongodb/mongodb-community-server:latest
+</span></span></code></pre></div><ol start="3">
+<li>Iniciei a execução de outra imagem de MongoDB que será o cliente (onde vou executar os comandos), que vai se conectar
+à imagem de servidor, usando a mesma network, abrindo uma sessão do shell:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --name mongodb-client --network mongodb-network -ti --rm mongodb/mongodb-community-server:latest bash
+</span></span></code></pre></div><ol start="4">
+<li>Com o shell da minha imagem cliente em execução, executei o comando para me conectar à imagem servidor:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mongosh mongodb-server:27017
+</span></span></code></pre></div><p>Importante lembrar de usar o nome dado à imagem servidor, para que seja reconhecida na network 😉</p>
+<ol start="5">
+<li>Feito esses passos, consegui meu objetivo!</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mongodb@9f2fac4c832d:/$ mongosh mongodb-server:27017
+</span></span><span style="display:flex;"><span>Current Mongosh Log ID: 649af9c2e2abf96f648a6456
+</span></span><span style="display:flex;"><span>Connecting to:          mongodb://mongodb-server:27017/?directConnection=true&amp;<span style="color:#40ffff">appName</span>=mongosh+1.10.1
+</span></span><span style="display:flex;"><span>Using MongoDB:          6.0.6
+</span></span><span style="display:flex;"><span>Using Mongosh:          1.10.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>------
+</span></span><span style="display:flex;"><span>   The server generated these startup warnings when booting
+</span></span><span style="display:flex;"><span>   2023-06-27T14:37:12.016+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+</span></span><span style="display:flex;"><span>   2023-06-27T14:37:12.735+00:00: Access control is not enabled <span style="color:#6ab825;font-weight:bold">for</span> the database. Read and write access to data and configuration is unrestricted
+</span></span><span style="display:flex;"><span>   2023-06-27T14:37:12.737+00:00: vm.max_map_count is too low
+</span></span><span style="display:flex;"><span>------
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>test&gt;
+</span></span></code></pre></div><p>Apenas para validar, fui checar os logs da imagem servidor para garantir o sucesso de tudo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker logs -f mongodb-server
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#6ab825;font-weight:bold">&#34;t&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;$date&#34;</span>:<span style="color:#ed9d13">&#34;2023-06-27T15:01:22.880+00:00&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;s&#34;</span>:<span style="color:#ed9d13">&#34;I&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;c&#34;</span>:<span style="color:#ed9d13">&#34;NETWORK&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;id&#34;</span>:<span style="color:#3677a9">22943</span>,   <span style="color:#6ab825;font-weight:bold">&#34;ctx&#34;</span>:<span style="color:#ed9d13">&#34;listener&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;msg&#34;</span>:<span style="color:#ed9d13">&#34;Connection accepted&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;attr&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;remote&#34;</span>:<span style="color:#ed9d13">&#34;172.18.0.3:37788&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;uuid&#34;</span>:<span style="color:#ed9d13">&#34;d970dc63-cd9a-4ec2-a2e0-0bc2f07d2a2e&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;connectionId&#34;</span>:<span style="color:#3677a9">6</span>,<span style="color:#6ab825;font-weight:bold">&#34;connectionCount&#34;</span>:<span style="color:#3677a9">1</span>}}
+</span></span><span style="display:flex;"><span>{<span style="color:#6ab825;font-weight:bold">&#34;t&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;$date&#34;</span>:<span style="color:#ed9d13">&#34;2023-06-27T15:01:22.886+00:00&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;s&#34;</span>:<span style="color:#ed9d13">&#34;I&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;c&#34;</span>:<span style="color:#ed9d13">&#34;NETWORK&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;id&#34;</span>:<span style="color:#3677a9">51800</span>,   <span style="color:#6ab825;font-weight:bold">&#34;ctx&#34;</span>:<span style="color:#ed9d13">&#34;conn6&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;msg&#34;</span>:<span style="color:#ed9d13">&#34;client metadata&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;attr&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;remote&#34;</span>:<span style="color:#ed9d13">&#34;172.18.0.3:37788&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;client&#34;</span>:<span style="color:#ed9d13">&#34;conn6&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;doc&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;application&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>:<span style="color:#ed9d13">&#34;mongosh 1.10.1&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;driver&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>:<span style="color:#ed9d13">&#34;nodejs|mongosh&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;version&#34;</span>:<span style="color:#ed9d13">&#34;5.6.0|1.10.1&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;platform&#34;</span>:<span style="color:#ed9d13">&#34;Node.js v16.20.1, LE&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;os&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>:<span style="color:#ed9d13">&#34;linux&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;architecture&#34;</span>:<span style="color:#ed9d13">&#34;x64&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;version&#34;</span>:<span style="color:#ed9d13">&#34;5.4.0-152-generic&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>:<span style="color:#ed9d13">&#34;Linux&#34;</span>}}}}
+</span></span></code></pre></div>
+</div>
+
+  
+  
+  
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+  </div>
+</div>
+
+  
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>

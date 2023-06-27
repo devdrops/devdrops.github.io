@@ -6,7 +6,19 @@
     <description>Recent content on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MongoDB e Docker</title>
+      <link>https://devdrops.github.io/posts/mongodb-e-docker/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/mongodb-e-docker/</guid>
+      <description>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.
+Antes de Seguir&amp;hellip; Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.
+A Situação Eu queria usar o mongosh via terminal em uma imagem Docker, para executar comandos apenas via linha de comando.
+Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongodb-community-server. Porém, ao executá-la, percebi que o entrypoint (comando configurado para iniciar a execução da imagem) já estava definido para inicializar o banco de dados, o que impedia de usar o mongosh &amp;ldquo;de cara&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>PostgreSQL: Dicas para Uso de Arquivos SQL</title>
       <link>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</link>
@@ -102,15 +114,6 @@ What is the PHP CS Fixer: a brief explanation For those who didn&amp;rsquo;t hea
       <description>In this first post, I&amp;rsquo;ll share my basic experience in how to use an important tool to assure and verify your code quality.
 Special thanks to Tomas Mysik and Adam McAuley for their efforts on Bugzilla and the NetBeans PHP Mailing List, which helped me a lot on how to use these combined tools, and then create this tutorial.
 Requirements  PHP &amp;gt;= 5.3 NetBeans 7.4 PEAR  Note: I&amp;rsquo;m assuming you already have an HTTP Server (like Apache) installed and ready for action.</description>
-    </item>
-    
-    <item>
-      <title>Palestras</title>
-      <link>https://devdrops.github.io/talks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/talks/</guid>
-      <description>Lista de todas as apresentações e palestras. Se tiver alguma dúvida, confira a página Sobre Mim :)  2016-11-14 - Refatoração Apresentação no canal Pagar.me Talks. Slides (pt_BR) Video (pt_BR)   2016-12-10 - Refatoração Apresentação no canal HHBR. Slides (pt_BR) Video (pt_BR)   2017-04-18 - Refatoração Apresentação feita no meetup do PHPSP+Talks em São Paulo - SP. Slides (pt_BR)   2017-05-26 - SPL - Estruturas de Dados Apresentação no canal Pagar.</description>
     </item>
     
   </channel>
