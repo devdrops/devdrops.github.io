@@ -68,6 +68,7 @@ percebi que o entrypoint (comando configurado para iniciar a execução da image
 banco de dados, o que impedia de usar o <code>mongosh</code> &ldquo;de cara&rdquo;. Sim, eu poderia driblar o entrypoint, mas aí eu perderia a
 inicialização automática do <code>mongod</code> e outras dependências, o que iria atrapalhar tudo.</p>
 <p>Tentei outras formas até finalmente conseguir o que queria, com os comandos abaixo:</p>
+<h2 id="a-solução">A Solução</h2>
 <ol>
 <li>Criei uma network para que as imagens Docker &ldquo;conversem&rdquo; entre si:</li>
 </ol>

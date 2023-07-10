@@ -22,6 +22,8 @@ inicialização automática do `mongod` e outras dependências, o que iria atrap
 
 Tentei outras formas até finalmente conseguir o que queria, com os comandos abaixo:
 
+## A Solução
+
 1. Criei uma network para que as imagens Docker "conversem" entre si:
 
 ```bash
