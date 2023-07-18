@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Autenticação http-basic no Composer &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2023. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Autenticação http-basic no Composer</h1>
+  
+  
+  <time datetime=2023-07-18T00:00:00Z class="post-date">2023-07-18</time>
+  
+  <p>Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉</p>
+<h2 id="antes-de-seguir">Antes de Seguir&hellip;</h2>
+<p>As instruções aqui informam dicas de como usar autenticação para download de dependências com Composer. Meu foco maior é
+usando Docker e Docker Compose, mas os comandos em essência podem ser usados em qualquer ambiente.</p>
+<h2 id="a-situação">A Situação</h2>
+<p>Uma vez, trabalhando com um projeto em PHP, observei que uma das dependências a instalar com
+<a href="https://getcomposer.org/">Composer</a> exigia autenticação para o download. O processo era simples: autenticação básica,
+com usuário e senha. Mas como eu queria algo automático, precisava de uma forma mais prática do que informar dados
+sensíveis &ldquo;na unha&rdquo;. Dado que era uma dependência privada, e eu estava usando Docker, pensei em como resolver isso de
+forma simples e segura.</p>
+<h2 id="a-solução">A Solução</h2>
+<p>Eu precisava resolver duas coisas:</p>
+<ol>
+<li>Como passar as informações de senha e usuário para o Composer;</li>
+<li>Como fazer isso de forma segura, sem versionar dados sensíveis.</li>
+</ol>
+<h3 id="com-docker-compose">Com Docker Compose</h3>
+<h4 id="arquivo-gitignore">Arquivo <code>.gitignore</code>:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>.env
+</span></span><span style="display:flex;"><span>auth.json
+</span></span></code></pre></div><p>O arquivo <code>.env</code> é onde vamos colocar os dados de usuário e senha. Dessa forma, o arquivo será ignorado pelo controle de
+versão. Já o arquivo <code>auth.json</code> será criado automaticamente pelo Composer, e como também pode conter informações
+sensíveis, recomendo que seja também ignorado da mesma forma.</p>
+<h4 id="arquivo-env">Arquivo <code>.env</code>:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#40ffff">USUARIO</span>=SECRETUSER
+</span></span><span style="display:flex;"><span><span style="color:#40ffff">SENHA</span>=SECRETPASSWORD
+</span></span></code></pre></div><p>No arquivo <code>.env</code>, criei duas variáveis, uma para o usuário e outra para a senha, ambos no formato <code>NOME=VALOR</code>.</p>
+<h4 id="arquivo-docker-composeyml">Arquivo <code>docker-compose.yml</code>:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">composer</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">image</span>:<span style="color:#666"> </span>devdrops/php-toolbox:8.2<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">env_file</span>:<span style="color:#666"> </span>.env<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>&gt;<span style="color:#ed9d13">
+</span></span></span><span style="display:flex;"><span><span style="color:#ed9d13">        </span><span style="color:#666">        </span>sh -c &#34;composer config http-basic.site.com ${USUARIO} ${SENHA} &amp;&amp; composer install&#34;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">volumes</span>:<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">        </span>- .:/app<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">working_dir</span>:<span style="color:#666"> </span>/app<span style="color:#666">
+</span></span></span></code></pre></div><p>E no arquivo <code>docker-compose.yml</code>, temos algumas instruções importantes:</p>
+<ul>
+<li>O parâmetro <code>image</code> aponta para a imagem Docker a ser usada. No caso, a
+<a href="https://github.com/devdrops/php-toolbox">devdrops/php-toolbox</a>, que possui Composer e outras ferramentas, usando PHP
+8.2.</li>
+<li>O parâmetro <code>env_file</code> aponta o arquivo <code>.env</code> como fonte de variáveis de ambiente.</li>
+<li>O parâmetro <code>command</code> tem 2 comandos:
+<ol>
+<li><code>composer config http-basic.&lt;ENDEREÇO&gt; &lt;USUARIO&gt; &lt;SENHA&gt;</code> instrui ao Composer que para o endereço específico, é
+preciso usar o usuário e senha informados.</li>
+<li><code>composer install</code>, agora com as instrução de autenticação, pode instalar as dependências com sucesso.</li>
+</ol>
+</li>
+<li>Enquanto isso, os demais parâmetros (<code>volumes</code> e <code>working_dir</code>) servem para uso correto de volumes, de forma que as
+alterações feitas no container sejam refletidas no mesmo diretório, na sua máquina.</li>
+</ul>
+<p>No final, ao executar <code>docker-compose up</code>, o Composer será capaz de fazer o download corretamente das dependências,
+privadas ou públicas.</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://getcomposer.org/doc/articles/authentication-for-private-packages.md#http-basic">https://getcomposer.org/doc/articles/authentication-for-private-packages.md#http-basic</a></li>
+</ul>
+
+</div>
+
+  
+  
+  
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+  </div>
+</div>
+
+  
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>
