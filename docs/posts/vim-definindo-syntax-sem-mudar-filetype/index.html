@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.95.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vim: Definindo syntax Sem Mudar filetype &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2023. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Vim: Definindo syntax Sem Mudar filetype</h1>
+  
+  
+  <time datetime=2023-07-24T00:00:00Z class="post-date">2023-07-24</time>
+  
+  <p>Essa é uma dica rápida para quem usa <a href="https://www.vim.org/">Vim</a> no dia a dia.</p>
+<h2 id="a-situação">A Situação</h2>
+<p>Uns tempos atrás, estava observando um projeto feito com TypeScript + React, com arquivos <code>.tsx</code>. No meu caso, minha
+instalação de Vim não sabia identificar a sintaxe (<code>syntax</code>) desses arquivos, deixando tudo com cara de texto comum.</p>
+<p>Como gosto de usar estilo nos arquivos, comecei a pensar em como poderia trazer a sintaxe sem sobrescrever o tipo de
+arquivo (<code>filetype</code>), que o Vim reconhecia como <code>typescriptreact</code>. Ou seja, eu queria manter o <code>filetype</code> e mudar apenas
+a sintaxe, aplicando um estilo parecido.</p>
+<h2 id="a-solução">A Solução</h2>
+<p>A solução encontrada foi definir uma instrução de uma só linha para isso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span>autocmd BufNewFile,BufRead *.tsx set syntax=typescript<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span></code></pre></div><p>Com essa instrução, que pode ser colocada no arquivo <code>.vimrc</code>, eu consigo reproduzir a mesma sintaxe usada para arquivos
+TypeScript para esses arquivos com extensão <code>*.tsx</code>, tanto ao criar como ao abrir.</p>
+<p>Você pode conferir essa instrução no meu repositório de &ldquo;dot files&rdquo;
+<a href="https://github.com/devdrops/my-dotfiles/blob/main/.vim/ftdetect/typescriptreact.vim">aqui</a>.</p>
+
+</div>
+
+  
+  
+  
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+  </div>
+</div>
+
+  
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>
