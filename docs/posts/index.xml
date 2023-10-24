@@ -6,7 +6,18 @@
     <description>Recent content in Posts on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL: Inicializar Banco de Dados com Docker</title>
+      <link>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</link>
+      <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</guid>
+      <description>Este texto serve como um complemento a um texto anterior daqui do blog, PostgreSQL: Dicas para Uso de Arquivos SQL.
+Antes de Prosseguir Esse texto oferece uma abordagem do PostgreSQL com imagem Docker. Caso esse não seja o seu caso, recomendo conferir a documentação do banco de dados e/ou das ferramentas do ambiente que você está usando.
+A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado para a criação do meu banco de dados, semelhante ao arquivo descrito no post citado acima.</description>
+    </item>
+    
     <item>
       <title>Vim: Definindo syntax Sem Mudar filetype</title>
       <link>https://devdrops.github.io/posts/vim-definindo-syntax-sem-mudar-filetype/</link>
@@ -49,7 +60,7 @@ Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongod
       <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
       <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
 Ao final deste texto, você poderá:
- Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
     </item>
     
     <item>
@@ -59,7 +70,7 @@ Ao final deste texto, você poderá:
       
       <guid>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</guid>
       <description>Este texto é uma tradução de um escrito que fiz em 2016, em inglês, e até hoje ainda recebe comentários. Por isso, decidi traduzir para Português do Brasil, mas, se quiser conferir o original, o link é este aqui. Para melhorar o entendimento, vou adicionar alguns comentários e explicações a mais, que possam enriquecer as informações.
- Antes de prosseguir Este tutorial parte do princípio que você tem Docker instalado corretamente, com pelo menos uma imagem do banco de dados MySQL, em um ambiente do SO Linux.</description>
+Antes de prosseguir Este tutorial parte do princípio que você tem Docker instalado corretamente, com pelo menos uma imagem do banco de dados MySQL, em um ambiente do SO Linux.</description>
     </item>
     
     <item>
@@ -69,7 +80,7 @@ Ao final deste texto, você poderá:
       
       <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</guid>
       <description>Este texto faz parte de uma série de 3 materiais no assunto:
- Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet  Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.15.6 linux/amd64, obtida pela imagem oficial da linguagem Go no Docker Hub.
+Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.15.6 linux/amd64, obtida pela imagem oficial da linguagem Go no Docker Hub.
 Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da ferramenta CLI.</description>
     </item>
     
@@ -81,7 +92,7 @@ Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da
       <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</guid>
       <description>Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de comandos disponíveis pela ferramenta CLI Go.
 Este texto faz parte de uma série de 3 materiais no assunto:
- Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet  Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.</description>
+Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.</description>
     </item>
     
     <item>
@@ -92,7 +103,7 @@ Este texto faz parte de uma série de 3 materiais no assunto:
       <guid>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</guid>
       <description>Olá!
 Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por padrão tanto do tmux como do tmate são bem mais recentes do que eu estava usando:
-~ apt-cache show tmux  # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2  ~ apt-cache show tmate  # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
+~ apt-cache show tmux # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2 ~ apt-cache show tmate # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
     </item>
     
     <item>
@@ -103,17 +114,7 @@ Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pess
       <guid>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</guid>
       <description>Hi! In this short post I&amp;rsquo;ll describe the steps I&amp;rsquo;ve made, with the great help of a work colleague, on how to achieve the combination of these great tools together: NetBeans, Xdebug and Vagrant.
 The following steps were executed in a vagrant box using Ubuntu, and with the Yosemite as the OS for the hosting machine.
-Xdebug Xdebugis one of the most amazing tools for any PHP developer. Consider yourself in the following situation: you have your code base, developed under some framework, and you have some few bugs while developing new features.</description>
-    </item>
-    
-    <item>
-      <title>Using PHP CS Fixer on NetBeans 8.0</title>
-      <link>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</link>
-      <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</guid>
-      <description>Recently on it&amp;rsquo;s version 8.0 (note: there&amp;rsquo;s a new stable release, NetBeans 8.0.1 at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for PHP Coding Standards Fixer (A.K.A. PHP CS Fixer).
-What is the PHP CS Fixer: a brief explanation For those who didn&amp;rsquo;t heard about PHP CS Fixer before (/me included), it&amp;rsquo;s pretty easy: it&amp;rsquo;s a tool to evaluate and apply fixes into your PHP code, according to the famous PHP code standards well know as PSR (PHP Standard Recomendation, as described at the PHP FIG site).</description>
+Xdebug Xdebug is one of the most amazing tools for any PHP developer. Consider yourself in the following situation: you have your code base, developed under some framework, and you have some few bugs while developing new features.</description>
     </item>
     
   </channel>

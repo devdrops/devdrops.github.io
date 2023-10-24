@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PostgreSQL: Inicializar Banco de Dados com Docker &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2023. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>PostgreSQL: Inicializar Banco de Dados com Docker</h1>
+  
+  
+  <time datetime=2023-10-24T00:00:00Z class="post-date">2023-10-24</time>
+  
+  <p>Este texto serve como um complemento a um texto anterior daqui do blog, <a href="">PostgreSQL: Dicas para Uso de Arquivos SQL</a>.</p>
+<h2 id="antes-de-prosseguir">Antes de Prosseguir</h2>
+<p>Esse texto oferece uma abordagem do PostgreSQL com imagem Docker. Caso esse não seja o seu caso, recomendo conferir a
+documentação do banco de dados e/ou das ferramentas do ambiente que você está usando.</p>
+<h2 id="a-situação">A Situação</h2>
+<p>Na criação de um projeto, eu já tinha um arquivo SQL preparado para a criação do meu banco de dados, semelhante ao
+arquivo descrito no post citado acima. Vou chamar aqui nesse texto esse arquivo de <code>env/db/database.sql</code>, como abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#999;font-style:italic">/* application será o nome do banco de dados */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span><span style="color:#ed9d13">&#39;CREATE DATABASE application&#39;</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	</span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">		</span>(<span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_database<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>datname<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#ed9d13">&#39;application&#39;</span>)<span style="color:#a61717;background-color:#e3d2d2">\</span>gexec<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* Selecionando o banco application */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#a61717;background-color:#e3d2d2">\</span><span style="color:#6ab825;font-weight:bold">c</span><span style="color:#666"> </span>application<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* Definindo timezone */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">SET</span><span style="color:#666"> </span>timezone<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#ed9d13">&#39;America/Sao_Paulo&#39;</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* UUID */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">BEGIN</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span>EXTENSION<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IF</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;uuid-ossp&#34;</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">COMMIT</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#999;font-style:italic">/* Tabela users */</span><span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">BEGIN</span>;<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">CREATE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">TABLE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IF</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">EXISTS</span><span style="color:#666"> </span>users<span style="color:#666"> </span>(<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	  </span>id<span style="color:#666">         </span><span style="color:#24909d">SERIAL</span><span style="color:#666">       </span><span style="color:#6ab825;font-weight:bold">PRIMARY</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">KEY</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	  </span>uuid<span style="color:#666">       </span>uuid<span style="color:#666">         </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DEFAULT</span><span style="color:#666"> </span>uuid_generate_v4<span style="color:#666"> </span>(),<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	  </span>name<span style="color:#666">       </span><span style="color:#24909d">VARCHAR</span>(<span style="color:#3677a9">100</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	  </span>document<span style="color:#666">   </span><span style="color:#24909d">CHAR</span>(<span style="color:#3677a9">11</span>)<span style="color:#666">     </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span>,<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">	  </span>created_on<span style="color:#666"> </span>TIMESTAMPTZ<span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NULL</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DEFAULT</span><span style="color:#666"> </span>NOW()<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666">  </span>);<span style="color:#666">
+</span></span></span><span style="display:flex;"><span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">COMMIT</span>;<span style="color:#666">
+</span></span></span></code></pre></div><p>Observação: adicionei o uso de transações nesse projeto, pois diferente da amostra acima, o arquivo original possui
+várias operações que precisavam de uma garantia de transação. Contudo, as instruções acima podem ser executadas sem
+<code>BEGIN;</code> e <code>COMMIT;</code> 😉</p>
+<p>Em outros projetos, a criação de um banco de dados &ldquo;pronto para ação&rdquo; era lenta, dependendo da disponibilidade do
+Postgres. Eu precisava de algo rápido, quase instantâneo, e efetivo.</p>
+<h2 id="a-solução">A Solução</h2>
+<p>Lendo a documentação da imagem oficial do PostgreSQL <a href="https://hub.docker.com/_/postgres">no Docker Hub</a>, encontrei algo
+que parecia atender o que eu queria.</p>
+<p>No tópico <strong>Initialization scripts</strong>, há um parágrafo explicando:</p>
+<blockquote>
+<p><em>If you would like to do additional initialization in an image derived from this one, add one or more <code>*.sql</code>,</em>
+<em><code>*.sql.gz</code>, or <code>*.sh</code> scripts under <code>/docker-entrypoint-initdb.d</code> (creating the directory if necessary). After the</em>
+<em>entrypoint calls <code>initdb</code> to create the default <code>postgres</code> user and database, it will run any <code>*.sql</code> files, run any</em>
+<em>executable <code>*.sh</code> scripts, and source any non-executable <code>*.sh</code> scripts found in that directory to do further</em>
+<em>initialization before starting the service.</em></p>
+</blockquote>
+<p>Traduzindo (de forma simples):</p>
+<blockquote>
+<p><em>Para executar qualquer ação ao initializar uma imagem derivada da imagem oficial, você pode colocar seus arquivos</em>
+<em><code>*.sql</code>, <code>*.sql.gz</code> ou <code>*.sh</code> (não executável) no diretório <code>/docker-entrypoint-initdb.d</code>, que esses arquivos serão</em>
+<em>executados logo após a criação do banco de dados e usuário padrões e antes de inicializar o serviço.</em></p>
+</blockquote>
+<p>Então, criei uma nova imagem Docker a partir da imagem oficial, <code>./env/Dockerfile.db</code> como abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#ed9d13"> postgres:9.6</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#6ab825;font-weight:bold">COPY</span> ./db/database.sql /docker-entrypoint-initdb.d/<span style="color:#a61717;background-color:#e3d2d2">
+</span></span></span></code></pre></div><p>Nele, há 2 instruções:</p>
+<p>Com a instrução <code>FROM</code>, eu defino que esta imagem tem como base a imagem <code>postgres</code>, na tag <code>9.6</code>. E com a instrução
+<code>COPY</code>, eu copio o arquivo <code>./env/db/database.sql</code> na minha máquina para o diretório <code>/docker-entrypoint-initdb.d</code> da
+minha imagem.</p>
+<p>Com isso, ao inicializar o meu ambiente, a imagem criada com o arquivo acima executava o meu arquivo SQL imediatamente,
+sem que eu precise me preocupar com essa tarefa.</p>
+
+</div>
+
+  
+  
+  
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+  </div>
+</div>
+
+  
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>
