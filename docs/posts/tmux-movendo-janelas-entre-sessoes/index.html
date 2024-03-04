@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>tmux: Movendo Janelas entre Sessões &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2024. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>tmux: Movendo Janelas entre Sessões</h1>
+  
+  
+  <time datetime=2024-03-04T00:00:00Z class="post-date">2024-03-04</time>
+  
+  <p>Dica quente para quem usa <a href="https://github.com/tmux/tmux">tmux</a>.</p>
+<h2 id="a-situação">A Situação</h2>
+<p>Normalmente, eu trabalho com várias sessões, uma para cada projeto e cada uma com as suas janelas. Eu criei uma sessão
+para um projeto (vou chamá-la de <strong>A</strong>), e nela eu tinha as seguintes janelas, cada uma para a sua finalidade:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>└── A
+</span></span><span style="display:flex;"><span>    ├── Janela 0: Vim
+</span></span><span style="display:flex;"><span>    ├── Janela 1: Comandos de terminal
+</span></span><span style="display:flex;"><span>    ├── Janela 2: Comandos de git
+</span></span><span style="display:flex;"><span>    └── Janela 3: Monitorando imagens Docker
+</span></span></code></pre></div><p>Só que, por engano, eu criei uma nova janela com um comando que eu gostaria de organizar em outra sessão, só para eu não
+me confundir (uma sessão por projeto), ficando assim:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>└── A
+</span></span><span style="display:flex;"><span>    ├── Janela 0: Vim
+</span></span><span style="display:flex;"><span>    ├── Janela 1: Comandos de terminal
+</span></span><span style="display:flex;"><span>    ├── Janela 2: Comandos de git
+</span></span><span style="display:flex;"><span>    ├── Janela 3: Monitorando imagens Docker
+</span></span><span style="display:flex;"><span>    └── Janela 4: Lens desktop
+</span></span></code></pre></div><p>Como eu não queria perder a janela para recriá-la em outro projeto do zero, procurei então uma forma de mover a janela
+do índice <strong>4</strong> para uma nova sessão.</p>
+<h2 id="a-solução">A Solução</h2>
+<p>Com tmux, isso é molezinha, basta usar o comando <code>move-window</code>. Segundo a doc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>move-window [-abrdk] [-s src-window] [-t dst-window]
+</span></span><span style="display:flex;"><span>              (alias: movew)
+</span></span><span style="display:flex;"><span>        This is similar to link-window, except the window at src-window is moved to dst-window.  With -r, all windows in
+</span></span><span style="display:flex;"><span>        the session are renumbered in sequential order, respecting the base-index option.
+</span></span></code></pre></div><p>Criei então uma nova sessão, que vou chamá-la de <strong>B</strong>, como abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>└── B
+</span></span><span style="display:flex;"><span>    └── Janela 0: Vim
+</span></span></code></pre></div><p>Naveguei até a janela que quero mover, na sessão <strong>A</strong>, janela <strong>4</strong>, e usei então o comando <code>move-window</code> pelo prompt
+de comando do tmux (prefixo + <code>:</code>), como abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>move-window -t B:1
+</span></span></code></pre></div><p>Dessa forma, obtive o seguinte resultado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>├── A
+</span></span><span style="display:flex;"><span>│   ├── Janela 0: Vim
+</span></span><span style="display:flex;"><span>│   ├── Janela 1: Comandos de terminal
+</span></span><span style="display:flex;"><span>│   ├── Janela 2: Comandos de git
+</span></span><span style="display:flex;"><span>│   └── Janela 3: Monitorando imagens Docker
+</span></span><span style="display:flex;"><span>└── B
+</span></span><span style="display:flex;"><span>    ├── Janela 0: Vim
+</span></span><span style="display:flex;"><span>    └── Janela 1: Lens desktop
+</span></span></code></pre></div>
+</div>
+
+  
+  
+  
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+  </div>
+</div>
+
+  
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>

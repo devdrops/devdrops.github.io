@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://devdrops.github.io/</loc>
-    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</loc>
-    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/vim-definindo-syntax-sem-mudar-filetype/</loc>
