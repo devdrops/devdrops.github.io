@@ -1,6 +1,7 @@
 ---
 title: "tmux: Migrando de 2.3.* para 3.*"
 date: 2020-10-04
+tags: ['tmux']
 draft: false
 ---
 

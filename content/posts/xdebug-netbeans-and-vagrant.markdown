@@ -1,6 +1,7 @@
 ---
 title: "Xdebug, NetBeans and Vagrant"
 date: 2015-05-06
+tags: ['PHP', 'Xdebug', 'NetBeans', 'Vagrant']
 draft: false
 ---
 
@@ -12,7 +13,7 @@ The following steps were executed in a vagrant box using Ubuntu, and with the Yo
 
 ![Xdebug](/2015/05/06/xdebug-logo.png#center)
 
-<a href="http://xdebug.org/">**Xdebug**</a> is one of the most amazing tools for any PHP developer. 
+<a href="http://xdebug.org/">**Xdebug**</a> is one of the most amazing tools for any PHP developer.
 Consider yourself in the following situation: you have your code base, developed under some framework, and you have some few bugs while developing new features. The most common attitude would be to add some `echo` calls to find out what exactly is happening in your code. Or even some `var_dump` to output the value of some variables.
 
 Well that's the most usual behaviour for many developers. But if you've started with any other language instead of PHP, you know how valuable is a proper debugger. That's why xdebug was created: to bring the same functionality for PHP devs.

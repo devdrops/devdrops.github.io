@@ -12,6 +12,9 @@ paginate = 8
 rssLimit = 10
 googleAnalytics = "UA-77125737-1"
 
+[taxonomies]
+  tag = 'tags'
+
 [markup]
   defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
@@ -45,7 +48,8 @@ googleAnalytics = "UA-77125737-1"
   main = [
     {Name = "Sobre", Weight = 10, Identifier = "about", URL = "/about/"},
     {Name = "Artigos", Weight = 20, Identifier = "archives", URL = "/posts/"},
-    {Name = "Palestras", Weight = 30, Identifier = "talks", URL = "/talks/"}
+    {Name = "Palestras", Weight = 30, Identifier = "talks", URL = "/talks/"},
+    {Name = "Tags", Weight = 40, Identifier = "tags", URL = "/tags/"}
   ]
 
 [Params]

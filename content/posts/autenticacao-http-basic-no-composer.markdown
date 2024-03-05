@@ -1,6 +1,7 @@
 ---
 title: "Autenticação http-basic no Composer"
 date: 2023-07-18
+tags: ['PHP', 'Composer', 'Docker', 'Docker-Compose']
 draft: false
 ---
 

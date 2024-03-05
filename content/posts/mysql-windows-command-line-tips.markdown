@@ -1,6 +1,7 @@
 ---
 title: "MySQL + Windows: Command Line Tips"
 date: 2014-03-29
+tags: ['MySQL', 'Windows']
 draft: false
 ---
 

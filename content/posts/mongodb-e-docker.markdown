@@ -1,6 +1,7 @@
 ---
 title: "MongoDB e Docker"
 date: 2023-06-27
+tags: ['MongoDB', 'Docker', 'mongosh']
 draft: false
 ---
 

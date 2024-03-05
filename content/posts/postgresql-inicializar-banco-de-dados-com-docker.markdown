@@ -1,6 +1,7 @@
 ---
 title: "PostgreSQL: Inicializar Banco de Dados com Docker"
 date: 2023-10-24
+tags: ['PostgreSQL', 'Docker']
 draft: false
 ---
 

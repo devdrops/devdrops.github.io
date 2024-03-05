@@ -1,6 +1,7 @@
 ---
 title: "Vim: Definindo syntax Sem Mudar filetype"
 date: 2023-07-24
+tags: ['Vim']
 draft: false
 ---
 

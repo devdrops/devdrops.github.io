@@ -1,6 +1,7 @@
 ---
 title: "Mysqldump de um container Docker"
 date: 2022-05-17
+tags: ['MySQL', 'Docker']
 draft: false
 ---
 

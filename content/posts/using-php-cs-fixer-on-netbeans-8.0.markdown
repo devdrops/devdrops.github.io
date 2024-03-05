@@ -1,6 +1,7 @@
 ---
 title: "Using PHP CS Fixer on NetBeans 8.0"
 date: 2014-09-16
+tags: ['PHP', 'NetBeans', 'PHP CS Fixer']
 draft: false
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Go: comandos CLI, parte 2"
 date: 2021-01-20
+tags: ['Go']
 draft: false
 ---
 

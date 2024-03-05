@@ -1,6 +1,7 @@
 ---
 title: "PostgreSQL: Dicas para Uso de Arquivos SQL"
 date: 2022-08-03
+tags: ['PostgreSQL', 'Docker', 'Docker-Compose']
 draft: false
 ---
 

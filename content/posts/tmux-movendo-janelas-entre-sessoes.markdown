@@ -1,6 +1,7 @@
 ---
 title: "tmux: Movendo Janelas entre Sessões"
 date: 2024-03-04
+tags: ['tmux']
 draft: false
 ---
 

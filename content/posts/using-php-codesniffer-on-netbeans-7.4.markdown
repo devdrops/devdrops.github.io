@@ -1,6 +1,7 @@
 ---
 title: "Using PHP_CodeSniffer on NetBeans 7.4"
 date: 2013-12-22
+tags: ['PHP', 'NetBeans', 'PHP_CodeSniffer', 'phpcs']
 draft: false
 ---
 
@@ -56,7 +57,7 @@ Simple and easy. On the top menu, go for *Source > Inspect...*. The following wi
 
 Once you have selected all your preferences, click on the *Inspect* button to start the inspection. It may take some time, so I suggest you to open a window and have some fresh air ;-)
 
-> Tip: if you want to change the scope before adjust the settings, select a file or a project in the *Projects* window before you go to *Source > Inspect...* . 
+> Tip: if you want to change the scope before adjust the settings, select a file or a project in the *Projects* window before you go to *Source > Inspect...* .
 
 NetBeans will then output a list of matchings according to which standards you've used to perform the inspection, as the image above (a dog icons indicates a CodeSniffer match, and a garbage can points to a MessDetector match). Then, apply all your methods to fix these matchings to assure that your code is 100% according to the standards, as you wish.
 

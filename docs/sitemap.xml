@@ -8,11 +8,26 @@
     <loc>https://devdrops.github.io/posts/</loc>
     <lastmod>2024-03-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://devdrops.github.io/tags/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/tmux/</loc>
+    <lastmod>2024-03-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/</loc>
     <lastmod>2024-03-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://devdrops.github.io/tags/docker/</loc>
+    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/postgresql/</loc>
+    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/vim/</loc>
+    <lastmod>2023-07-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/vim-definindo-syntax-sem-mudar-filetype/</loc>
     <lastmod>2023-07-24T00:00:00+00:00</lastmod>
@@ -20,14 +35,35 @@
     <loc>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</loc>
     <lastmod>2023-07-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://devdrops.github.io/tags/composer/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/docker-compose/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/php/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/mongodb/</loc>
+    <lastmod>2023-06-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://devdrops.github.io/posts/mongodb-e-docker/</loc>
+    <lastmod>2023-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/mongosh/</loc>
     <lastmod>2023-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</loc>
     <lastmod>2022-08-03T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://devdrops.github.io/tags/mysql/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</loc>
     <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/go/</loc>
+    <lastmod>2021-01-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
@@ -38,8 +74,20 @@
     <loc>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</loc>
     <lastmod>2020-10-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://devdrops.github.io/tags/netbeans/</loc>
+    <lastmod>2015-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/vagrant/</loc>
+    <lastmod>2015-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/xdebug/</loc>
+    <lastmod>2015-05-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</loc>
     <lastmod>2015-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/php-cs-fixer/</loc>
+    <lastmod>2014-09-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</loc>
     <lastmod>2014-09-16T00:00:00+00:00</lastmod>
@@ -47,15 +95,20 @@
     <loc>https://devdrops.github.io/posts/mysql-windows-command-line-tips/</loc>
     <lastmod>2014-03-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://devdrops.github.io/posts/using-php-codesniffer-on-netbeans-7.4/</loc>
+    <loc>https://devdrops.github.io/tags/windows/</loc>
+    <lastmod>2014-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/tags/php_codesniffer/</loc>
     <lastmod>2013-12-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://devdrops.github.io/categories/</loc>
+    <loc>https://devdrops.github.io/tags/phpcs/</loc>
+    <lastmod>2013-12-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devdrops.github.io/posts/using-php-codesniffer-on-netbeans-7.4/</loc>
+    <lastmod>2013-12-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://devdrops.github.io/talks/</loc>
   </url><url>
     <loc>https://devdrops.github.io/about/</loc>
-  </url><url>
-    <loc>https://devdrops.github.io/tags/</loc>
   </url>
 </urlset>
