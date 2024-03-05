@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xdebug on DevDrops</title>
+    <link>https://devdrops.github.io/tags/xdebug/</link>
+    <description>Recent content in Xdebug on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Wed, 06 May 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/xdebug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xdebug, NetBeans and Vagrant</title>
+      <link>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</link>
+      <pubDate>Wed, 06 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</guid>
+      <description>Hi! In this short post I&amp;rsquo;ll describe the steps I&amp;rsquo;ve made, with the great help of a work colleague, on how to achieve the combination of these great tools together: NetBeans, Xdebug and Vagrant.
+The following steps were executed in a vagrant box using Ubuntu, and with the Yosemite as the OS for the hosting machine.
+Xdebug Xdebug is one of the most amazing tools for any PHP developer. Consider yourself in the following situation: you have your code base, developed under some framework, and you have some few bugs while developing new features.</description>
+    </item>
+    
+  </channel>
+</rss>

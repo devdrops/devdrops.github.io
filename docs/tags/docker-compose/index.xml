@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker-Compose on DevDrops</title>
+    <link>https://devdrops.github.io/tags/docker-compose/</link>
+    <description>Recent content in Docker-Compose on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Tue, 18 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autenticação http-basic no Composer</title>
+      <link>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</guid>
+      <description>Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉
+Antes de Seguir&amp;hellip; As instruções aqui informam dicas de como usar autenticação para download de dependências com Composer. Meu foco maior é usando Docker e Docker Compose, mas os comandos em essência podem ser usados em qualquer ambiente.
+A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das dependências a instalar com Composer exigia autenticação para o download.</description>
+    </item>
+    
+    <item>
+      <title>PostgreSQL: Dicas para Uso de Arquivos SQL</title>
+      <link>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
+      <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
+Ao final deste texto, você poderá:
+Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+    </item>
+    
+  </channel>
+</rss>

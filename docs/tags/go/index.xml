@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on DevDrops</title>
+    <link>https://devdrops.github.io/tags/go/</link>
+    <description>Recent content in Go on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go: comandos CLI, parte 2</title>
+      <link>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</guid>
+      <description>Este texto faz parte de uma série de 3 materiais no assunto:
+Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.15.6 linux/amd64, obtida pela imagem oficial da linguagem Go no Docker Hub.
+Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da ferramenta CLI.</description>
+    </item>
+    
+    <item>
+      <title>Go: comandos CLI, parte 1</title>
+      <link>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</link>
+      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</guid>
+      <description>Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de comandos disponíveis pela ferramenta CLI Go.
+Este texto faz parte de uma série de 3 materiais no assunto:
+Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tmux on DevDrops</title>
+    <link>https://devdrops.github.io/tags/tmux/</link>
+    <description>Recent content in tmux on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tmux: Movendo Janelas entre Sessões</title>
+      <link>https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/</link>
+      <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/</guid>
+      <description>Dica quente para quem usa tmux.
+A Situação Normalmente, eu trabalho com várias sessões, uma para cada projeto e cada uma com as suas janelas. Eu criei uma sessão para um projeto (vou chamá-la de A), e nela eu tinha as seguintes janelas, cada uma para a sua finalidade:
+└── A ├── Janela 0: Vim ├── Janela 1: Comandos de terminal ├── Janela 2: Comandos de git └── Janela 3: Monitorando imagens Docker Só que, por engano, eu criei uma nova janela com um comando que eu gostaria de organizar em outra sessão, só para eu não me confundir (uma sessão por projeto), ficando assim:</description>
+    </item>
+    
+    <item>
+      <title>tmux: Migrando de 2.3.* para 3.*</title>
+      <link>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</guid>
+      <description>Olá!
+Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por padrão tanto do tmux como do tmate são bem mais recentes do que eu estava usando:
+~ apt-cache show tmux # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2 ~ apt-cache show tmate # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
+    </item>
+    
+  </channel>
+</rss>

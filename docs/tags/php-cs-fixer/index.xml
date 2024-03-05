@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHP CS Fixer on DevDrops</title>
+    <link>https://devdrops.github.io/tags/php-cs-fixer/</link>
+    <description>Recent content in PHP CS Fixer on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Tue, 16 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/php-cs-fixer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using PHP CS Fixer on NetBeans 8.0</title>
+      <link>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</link>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</guid>
+      <description>Recently on it&amp;rsquo;s version 8.0 (note: there&amp;rsquo;s a new stable release, NetBeans 8.0.1 at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for PHP Coding Standards Fixer (A.K.A. PHP CS Fixer).
+What is the PHP CS Fixer: a brief explanation For those who didn&amp;rsquo;t heard about PHP CS Fixer before (/me included), it&amp;rsquo;s pretty easy: it&amp;rsquo;s a tool to evaluate and apply fixes into your PHP code, according to the famous PHP code standards well know as PSR (PHP Standard Recomendation, as described at the PHP FIG site).</description>
+    </item>
+    
+  </channel>
+</rss>

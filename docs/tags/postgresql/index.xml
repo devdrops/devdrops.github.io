@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PostgreSQL on DevDrops</title>
+    <link>https://devdrops.github.io/tags/postgresql/</link>
+    <description>Recent content in PostgreSQL on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL: Inicializar Banco de Dados com Docker</title>
+      <link>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</link>
+      <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</guid>
+      <description>Este texto serve como um complemento a um texto anterior daqui do blog, PostgreSQL: Dicas para Uso de Arquivos SQL.
+Antes de Prosseguir Esse texto oferece uma abordagem do PostgreSQL com imagem Docker. Caso esse não seja o seu caso, recomendo conferir a documentação do banco de dados e/ou das ferramentas do ambiente que você está usando.
+A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado para a criação do meu banco de dados, semelhante ao arquivo descrito no post citado acima.</description>
+    </item>
+    
+    <item>
+      <title>PostgreSQL: Dicas para Uso de Arquivos SQL</title>
+      <link>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
+      <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
+Ao final deste texto, você poderá:
+Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+    </item>
+    
+  </channel>
+</rss>

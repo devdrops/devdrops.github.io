@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MongoDB on DevDrops</title>
+    <link>https://devdrops.github.io/tags/mongodb/</link>
+    <description>Recent content in MongoDB on DevDrops</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Tue, 27 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MongoDB e Docker</title>
+      <link>https://devdrops.github.io/posts/mongodb-e-docker/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/mongodb-e-docker/</guid>
+      <description>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.
+Antes de Seguir&amp;hellip; Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.
+A Situação Eu queria usar o mongosh via terminal em uma imagem Docker, para executar comandos apenas via linha de comando.
+Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongodb-community-server. Porém, ao executá-la, percebi que o entrypoint (comando configurado para iniciar a execução da imagem) já estava definido para inicializar o banco de dados, o que impedia de usar o mongosh &amp;ldquo;de cara&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
