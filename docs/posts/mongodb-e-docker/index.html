@@ -50,28 +50,31 @@
 </aside>
 
     <main class="content container">
-    <div class="post">
-  <h1>MongoDB e Docker</h1>
-  
-  
-  <time datetime=2023-06-27 class="post-date">2023-06-27</time>
-  
+    <section id="main">
+  <div class="post">
+    <h1 id="title">MongoDB e Docker</h1>
+    <div>
+      
+      
+      <h4 id="date" class="post-date">2023-06-27</h4>
+      
 
-  
-  
-  
-  <p>
-    <i>
-    Tags:
-    
-      <a href="/tags/mongodb/">MongoDB</a>, 
-      <a href="/tags/docker/">Docker</a>, 
-      <a href="/tags/mongosh/">mongosh</a>
-    </i>
-  </p>
-  
+      
+      
+      
+      <p id="tags">
+      <i>
+        Tags:
+        
+        <a href="/tags/mongodb/">MongoDB</a>, 
+        <a href="/tags/docker/">Docker</a>, 
+        <a href="/tags/mongosh/">mongosh</a>
+      </i>
+      </p>
+      
 
-  <p>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.</p>
+      <article id="content">
+        <p>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.</p>
 <h2 id="antes-de-seguir">Antes de Seguir&hellip;</h2>
 <p>Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.</p>
 <h2 id="a-situação">A Situação</h2>
@@ -126,11 +129,28 @@ inicialização automática do <code>mongod</code> e outras dependências, o que
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#6ab825;font-weight:bold">&#34;t&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;$date&#34;</span>:<span style="color:#ed9d13">&#34;2023-06-27T15:01:22.880+00:00&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;s&#34;</span>:<span style="color:#ed9d13">&#34;I&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;c&#34;</span>:<span style="color:#ed9d13">&#34;NETWORK&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;id&#34;</span>:<span style="color:#3677a9">22943</span>,   <span style="color:#6ab825;font-weight:bold">&#34;ctx&#34;</span>:<span style="color:#ed9d13">&#34;listener&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;msg&#34;</span>:<span style="color:#ed9d13">&#34;Connection accepted&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;attr&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;remote&#34;</span>:<span style="color:#ed9d13">&#34;172.18.0.3:37788&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;uuid&#34;</span>:<span style="color:#ed9d13">&#34;d970dc63-cd9a-4ec2-a2e0-0bc2f07d2a2e&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;connectionId&#34;</span>:<span style="color:#3677a9">6</span>,<span style="color:#6ab825;font-weight:bold">&#34;connectionCount&#34;</span>:<span style="color:#3677a9">1</span>}}
 </span></span><span style="display:flex;"><span>{<span style="color:#6ab825;font-weight:bold">&#34;t&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;$date&#34;</span>:<span style="color:#ed9d13">&#34;2023-06-27T15:01:22.886+00:00&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;s&#34;</span>:<span style="color:#ed9d13">&#34;I&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;c&#34;</span>:<span style="color:#ed9d13">&#34;NETWORK&#34;</span>,  <span style="color:#6ab825;font-weight:bold">&#34;id&#34;</span>:<span style="color:#3677a9">51800</span>,   <span style="color:#6ab825;font-weight:bold">&#34;ctx&#34;</span>:<span style="color:#ed9d13">&#34;conn6&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;msg&#34;</span>:<span style="color:#ed9d13">&#34;client metadata&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;attr&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;remote&#34;</span>:<span style="color:#ed9d13">&#34;172.18.0.3:37788&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;client&#34;</span>:<span style="color:#ed9d13">&#34;conn6&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;doc&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;application&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>:<span style="color:#ed9d13">&#34;mongosh 1.10.1&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;driver&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>:<span style="color:#ed9d13">&#34;nodejs|mongosh&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;version&#34;</span>:<span style="color:#ed9d13">&#34;5.6.0|1.10.1&#34;</span>},<span style="color:#6ab825;font-weight:bold">&#34;platform&#34;</span>:<span style="color:#ed9d13">&#34;Node.js v16.20.1, LE&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;os&#34;</span>:{<span style="color:#6ab825;font-weight:bold">&#34;name&#34;</span>:<span style="color:#ed9d13">&#34;linux&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;architecture&#34;</span>:<span style="color:#ed9d13">&#34;x64&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;version&#34;</span>:<span style="color:#ed9d13">&#34;5.4.0-152-generic&#34;</span>,<span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>:<span style="color:#ed9d13">&#34;Linux&#34;</span>}}}}
 </span></span></code></pre></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div>
+  
+  <i>Post anterior: <a class="previous" href="/posts/postgresql-dicas-para-uso-de-arquivos-sql/"> PostgreSQL: Dicas para Uso de Arquivos SQL</a></i>
+  
+  <br />
+  
+  <i>Próximo post: <a class="next" href="/posts/autenticacao-http-basic-no-composer/"> Autenticação http-basic no Composer</a></i>
+  
+  <br />
+  <br />
 </div>
 
-  
-  
-  
+
+
+
 <div class="authorbox clearfix">
   <figure class="authorbox__avatar">
     <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
@@ -143,7 +163,7 @@ inicialização automática do <code>mongod</code> e outras dependências, o que
   </div>
 </div>
 
-  
+
 
 
     </main>

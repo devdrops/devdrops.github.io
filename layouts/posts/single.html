@@ -1,32 +1,52 @@
 {{ define "main" -}}
-<div class="post">
-  <h1>{{ .Title }}</h1>
-  {{/* Considere somente páginas com 'date' preenchido */}}
-  {{ if .Date }}
-  <time datetime={{ .Date.Format "2006-01-02" }} class="post-date">{{ .Date.Format "2006-01-02" }}</time>
-  {{ end }}
+<section id="main">
+  <div class="post">
+    <h1 id="title">{{ .Title }}</h1>
+    <div>
+      {{/* Considere somente páginas com 'date' preenchido */}}
+      {{ if .Date }}
+      <h4 id="date" class="post-date">{{ .Date.Format "2006-01-02" }}</h4>
+      {{ end }}
 
-  {{/* Exibe lista de tags abaixo da data */}}
-  {{ $taxonomy := "tags" }}
-  {{ with .GetTerms $taxonomy }}
-  <p>
-    <i>
-    {{ (site.GetPage $taxonomy).LinkTitle }}:
-    {{ range $k, $_ := . -}}
-      {{ if $k }}, {{ end }}
-      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-    {{- end }}
-    </i>
-  </p>
-  {{ end }}
+      {{/* Exibe lista de tags abaixo da data */}}
+      {{ $taxonomy := "tags" }}
+      {{ with .GetTerms $taxonomy }}
+      <p id="tags">
+      <i>
+        {{ (site.GetPage $taxonomy).LinkTitle }}:
+        {{ range $k, $_ := . -}}
+        {{ if $k }}, {{ end }}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end }}
+      </i>
+      </p>
+      {{ end }}
 
-  {{ .Content }}
+      <article id="content">
+        {{ .Content }}
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div>
+  {{ with .Prev }}
+  <i>Post anterior: <a class="previous" href="{{ .RelPermalink }}"> {{ .LinkTitle }}</a></i>
+  {{ end }}
+  <br />
+  {{ with .Next }}
+  <i>Próximo post: <a class="next" href="{{ .RelPermalink }}"> {{ .LinkTitle }}</a></i>
+  {{ end }}
+  <br />
+  <br />
 </div>
 
-  {{/* Considere somente páginas com 'date' preenchido */}}
-  {{ if .Date }}
-  {{ partial "authorbox.html" . }}
-  {{ end }}
+{{/* Considere somente páginas com 'date' preenchido */}}
+{{ if .Date }}
+{{ partial "authorbox.html" . }}
+{{ end }}
 
 {{ if .Site.DisqusShortname -}}
 <h2>Comments</h2>
