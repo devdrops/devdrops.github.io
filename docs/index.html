@@ -59,9 +59,7 @@
         <a href="https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/">tmux: Movendo Janelas entre Sessões</a>
       </h1>
       <h4 id="date" class="post-date">2024-03-04</h4>
-      Dica quente para quem usa tmux.
-A Situação Normalmente, eu trabalho com várias sessões, uma para cada projeto e cada uma com as suas janelas. Eu criei uma sessão para um projeto (vou chamá-la de A), e nela eu tinha as seguintes janelas, cada uma para a sua finalidade:
-└── A ├── Janela 0: Vim ├── Janela 1: Comandos de terminal ├── Janela 2: Comandos de git └── Janela 3: Monitorando imagens Docker Só que, por engano, eu criei uma nova janela com um comando que eu gostaria de organizar em outra sessão, só para eu não me confundir (uma sessão por projeto), ficando assim:
+      <p>Dica quente para quem usa <a href="https://github.com/tmux/tmux">tmux</a>.</p>
       
       <div class="read-more-link">
         <a href="/posts/tmux-movendo-janelas-entre-sessoes/">Leia mais…</a>
@@ -75,9 +73,8 @@ A Situação Normalmente, eu trabalho com várias sessões, uma para cada projet
         <a href="https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/">PostgreSQL: Inicializar Banco de Dados com Docker</a>
       </h1>
       <h4 id="date" class="post-date">2023-10-24</h4>
-      Este texto serve como um complemento a um texto anterior daqui do blog, PostgreSQL: Dicas para Uso de Arquivos SQL.
-Antes de Prosseguir Esse texto oferece uma abordagem do PostgreSQL com imagem Docker. Caso esse não seja o seu caso, recomendo conferir a documentação do banco de dados e/ou das ferramentas do ambiente que você está usando.
-A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado para a criação do meu banco de dados, semelhante ao arquivo descrito no post citado acima.
+      <p>Este texto serve como um complemento a um texto anterior daqui do blog, <a href="/posts/postgresql-dicas-para-uso-de-arquivos-sql/">PostgreSQL: Dicas para Uso de Arquivos
+SQL</a>.</p>
       
       <div class="read-more-link">
         <a href="/posts/postgresql-inicializar-banco-de-dados-com-docker/">Leia mais…</a>
@@ -91,9 +88,7 @@ A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado p
         <a href="https://devdrops.github.io/posts/vim-definindo-syntax-sem-mudar-filetype/">Vim: Definindo syntax Sem Mudar filetype</a>
       </h1>
       <h4 id="date" class="post-date">2023-07-24</h4>
-      Essa é uma dica rápida para quem usa Vim no dia a dia.
-A Situação Uns tempos atrás, estava observando um projeto feito com TypeScript + React, com arquivos .tsx. No meu caso, minha instalação de Vim não sabia identificar a sintaxe (syntax) desses arquivos, deixando tudo com cara de texto comum.
-Como gosto de usar estilo nos arquivos, comecei a pensar em como poderia trazer a sintaxe sem sobrescrever o tipo de arquivo (filetype), que o Vim reconhecia como typescriptreact.
+      <p>Essa é uma dica rápida para quem usa <a href="https://www.vim.org/">Vim</a> no dia a dia.</p>
       
       <div class="read-more-link">
         <a href="/posts/vim-definindo-syntax-sem-mudar-filetype/">Leia mais…</a>
@@ -107,9 +102,7 @@ Como gosto de usar estilo nos arquivos, comecei a pensar em como poderia trazer 
         <a href="https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/">Autenticação http-basic no Composer</a>
       </h1>
       <h4 id="date" class="post-date">2023-07-18</h4>
-      Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉
-Antes de Seguir&hellip; As instruções aqui informam dicas de como usar autenticação para download de dependências com Composer. Meu foco maior é usando Docker e Docker Compose, mas os comandos em essência podem ser usados em qualquer ambiente.
-A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das dependências a instalar com Composer exigia autenticação para o download.
+      <p>Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉</p>
       
       <div class="read-more-link">
         <a href="/posts/autenticacao-http-basic-no-composer/">Leia mais…</a>
@@ -123,10 +116,7 @@ A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das de
         <a href="https://devdrops.github.io/posts/mongodb-e-docker/">MongoDB e Docker</a>
       </h1>
       <h4 id="date" class="post-date">2023-06-27</h4>
-      Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.
-Antes de Seguir&hellip; Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.
-A Situação Eu queria usar o mongosh via terminal em uma imagem Docker, para executar comandos apenas via linha de comando.
-Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongodb-community-server. Porém, ao executá-la, percebi que o entrypoint (comando configurado para iniciar a execução da imagem) já estava definido para inicializar o banco de dados, o que impedia de usar o mongosh &ldquo;de cara&rdquo;.
+      <p>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.</p>
       
       <div class="read-more-link">
         <a href="/posts/mongodb-e-docker/">Leia mais…</a>
@@ -140,9 +130,9 @@ Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongod
         <a href="https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/">PostgreSQL: Dicas para Uso de Arquivos SQL</a>
       </h1>
       <h4 id="date" class="post-date">2022-08-03</h4>
-      Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
-Ao final deste texto, você poderá:
-Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.
+      <p>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL
+através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar
+esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!</p>
       
       <div class="read-more-link">
         <a href="/posts/postgresql-dicas-para-uso-de-arquivos-sql/">Leia mais…</a>
@@ -156,8 +146,12 @@ Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em
         <a href="https://devdrops.github.io/posts/mysqldump-de-um-container-docker/">Mysqldump de um container Docker</a>
       </h1>
       <h4 id="date" class="post-date">2022-05-17</h4>
-      Este texto é uma tradução de um escrito que fiz em 2016, em inglês, e até hoje ainda recebe comentários. Por isso, decidi traduzir para Português do Brasil, mas, se quiser conferir o original, o link é este aqui. Para melhorar o entendimento, vou adicionar alguns comentários e explicações a mais, que possam enriquecer as informações.
-Antes de prosseguir Este tutorial parte do princípio que você tem Docker instalado corretamente, com pelo menos uma imagem do banco de dados MySQL, em um ambiente do SO Linux.
+      <p>Este texto é uma tradução de um escrito que fiz em 2016, em inglês, e até hoje
+ainda recebe comentários. Por isso, decidi traduzir para Português do Brasil,
+mas, se quiser conferir o original, o link é <a href="https://gist.github.com/devdrops/c59ee84504d128a7913a480b1191d66e">este
+aqui</a>. Para
+melhorar o entendimento, vou adicionar alguns comentários e explicações a mais,
+que possam enriquecer as informações.</p>
       
       <div class="read-more-link">
         <a href="/posts/mysqldump-de-um-container-docker/">Leia mais…</a>
@@ -171,9 +165,7 @@ Antes de prosseguir Este tutorial parte do princípio que você tem Docker insta
         <a href="https://devdrops.github.io/posts/go-comandos-cli-parte-2/">Go: comandos CLI, parte 2</a>
       </h1>
       <h4 id="date" class="post-date">2021-01-20</h4>
-      Este texto faz parte de uma série de 3 materiais no assunto:
-Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.15.6 linux/amd64, obtida pela imagem oficial da linguagem Go no Docker Hub.
-Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da ferramenta CLI.
+      <p>Este texto faz parte de uma série de 3 materiais no assunto:</p>
       
       <div class="read-more-link">
         <a href="/posts/go-comandos-cli-parte-2/">Leia mais…</a>
@@ -187,9 +179,8 @@ Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da
         <a href="https://devdrops.github.io/posts/go-comandos-cli-parte-1/">Go: comandos CLI, parte 1</a>
       </h1>
       <h4 id="date" class="post-date">2021-01-02</h4>
-      Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de comandos disponíveis pela ferramenta CLI Go.
-Este texto faz parte de uma série de 3 materiais no assunto:
-Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.
+      <p>Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de
+comandos disponíveis pela ferramenta CLI <strong>Go</strong>.</p>
       
       <div class="read-more-link">
         <a href="/posts/go-comandos-cli-parte-1/">Leia mais…</a>
@@ -203,9 +194,11 @@ Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install
         <a href="https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/">tmux: Migrando de 2.3.* para 3.*</a>
       </h1>
       <h4 id="date" class="post-date">2020-10-04</h4>
-      Olá!
-Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por padrão tanto do tmux como do tmate são bem mais recentes do que eu estava usando:
-~ apt-cache show tmux # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2 ~ apt-cache show tmate # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.
+      <p>Olá!</p>
+<p>Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal
+de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por
+padrão tanto do <em>tmux</em> como do <em>tmate</em> são bem mais recentes do que eu estava
+usando:</p>
       
       <div class="read-more-link">
         <a href="/posts/tmux-migrando-de-2.3-para-3/">Leia mais…</a>
@@ -219,9 +212,7 @@ Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pess
         <a href="https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/">Xdebug, NetBeans and Vagrant</a>
       </h1>
       <h4 id="date" class="post-date">2015-05-06</h4>
-      Hi! In this short post I&rsquo;ll describe the steps I&rsquo;ve made, with the great help of a work colleague, on how to achieve the combination of these great tools together: NetBeans, Xdebug and Vagrant.
-The following steps were executed in a vagrant box using Ubuntu, and with the Yosemite as the OS for the hosting machine.
-Xdebug Xdebug is one of the most amazing tools for any PHP developer. Consider yourself in the following situation: you have your code base, developed under some framework, and you have some few bugs while developing new features.
+      <p>Hi! In this short post I&rsquo;ll describe the steps I&rsquo;ve made, with the great help of a work colleague, on how to achieve the combination of these great tools together: <strong>NetBeans</strong>, <strong>Xdebug</strong> and <strong>Vagrant</strong>.</p>
       
       <div class="read-more-link">
         <a href="/posts/xdebug-netbeans-and-vagrant/">Leia mais…</a>
@@ -235,8 +226,7 @@ Xdebug Xdebug is one of the most amazing tools for any PHP developer. Consider y
         <a href="https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/">Using PHP CS Fixer on NetBeans 8.0</a>
       </h1>
       <h4 id="date" class="post-date">2014-09-16</h4>
-      Recently on it&rsquo;s version 8.0 (note: there&rsquo;s a new stable release, NetBeans 8.0.1 at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for PHP Coding Standards Fixer (A.K.A. PHP CS Fixer).
-What is the PHP CS Fixer: a brief explanation For those who didn&rsquo;t heard about PHP CS Fixer before (/me included), it&rsquo;s pretty easy: it&rsquo;s a tool to evaluate and apply fixes into your PHP code, according to the famous PHP code standards well know as PSR (PHP Standard Recomendation, as described at the PHP FIG site).
+      <p>Recently on it&rsquo;s version 8.0 (note: there&rsquo;s a new stable release, <a href="https://netbeans.org/downloads/">NetBeans 8.0.1</a> at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for  <a href="http://cs.sensiolabs.org/">PHP Coding Standards Fixer</a> (A.K.A. PHP CS Fixer).</p>
       
       <div class="read-more-link">
         <a href="/posts/using-php-cs-fixer-on-netbeans-8.0/">Leia mais…</a>
@@ -250,9 +240,7 @@ What is the PHP CS Fixer: a brief explanation For those who didn&rsquo;t heard a
         <a href="https://devdrops.github.io/posts/mysql-windows-command-line-tips/">MySQL &#43; Windows: Command Line Tips</a>
       </h1>
       <h4 id="date" class="post-date">2014-03-29</h4>
-      On this post, I&rsquo;ll share some handy MySQL commands I&rsquo;ve been through in the last months, and now they&rsquo;re a essential part of my daily work and I&rsquo;m writing them down to never forget them anymore ;-).
-Important: none of these commands below will work unless you&rsquo;ve properly have both root access and MySQL command line tools configured on your PATH environment variable.
-mysql -u user -p database_name Basic command to connect to a local MySQL server.
+      <p>On this post, I&rsquo;ll share some handy <a href="http://www.mysql.com/">MySQL</a> commands I&rsquo;ve been through in the last months, and now they&rsquo;re a essential part of my daily work <del>and I&rsquo;m writing them down to never forget them anymore ;-)</del>.</p>
       
       <div class="read-more-link">
         <a href="/posts/mysql-windows-command-line-tips/">Leia mais…</a>
@@ -266,9 +254,7 @@ mysql -u user -p database_name Basic command to connect to a local MySQL server.
         <a href="https://devdrops.github.io/posts/using-php-codesniffer-on-netbeans-7.4/">Using PHP_CodeSniffer on NetBeans 7.4</a>
       </h1>
       <h4 id="date" class="post-date">2013-12-22</h4>
-      In this first post, I&rsquo;ll share my basic experience in how to use an important tool to assure and verify your code quality.
-Special thanks to Tomas Mysik and Adam McAuley for their efforts on Bugzilla and the NetBeans PHP Mailing List, which helped me a lot on how to use these combined tools, and then create this tutorial.
-Requirements PHP &gt;= 5.3 NetBeans 7.4 PEAR Note: I&rsquo;m assuming you already have an HTTP Server (like Apache) installed and ready for action.
+      <p>In this first post, I&rsquo;ll share my basic experience in how to use an important tool to assure and verify your code quality.</p>
       
       <div class="read-more-link">
         <a href="/posts/using-php-codesniffer-on-netbeans-7.4/">Leia mais…</a>

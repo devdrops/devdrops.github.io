@@ -13,9 +13,8 @@
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</guid>
-      <description>Este texto serve como um complemento a um texto anterior daqui do blog, PostgreSQL: Dicas para Uso de Arquivos SQL.
-Antes de Prosseguir Esse texto oferece uma abordagem do PostgreSQL com imagem Docker. Caso esse não seja o seu caso, recomendo conferir a documentação do banco de dados e/ou das ferramentas do ambiente que você está usando.
-A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado para a criação do meu banco de dados, semelhante ao arquivo descrito no post citado acima.</description>
+      <description>&lt;p&gt;Este texto serve como um complemento a um texto anterior daqui do blog, &lt;a href=&#34;https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/&#34;&gt;PostgreSQL: Dicas para Uso de Arquivos
+SQL&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -24,9 +23,7 @@ A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado p
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</guid>
-      <description>Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉
-Antes de Seguir&amp;hellip; As instruções aqui informam dicas de como usar autenticação para download de dependências com Composer. Meu foco maior é usando Docker e Docker Compose, mas os comandos em essência podem ser usados em qualquer ambiente.
-A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das dependências a instalar com Composer exigia autenticação para o download.</description>
+      <description>&lt;p&gt;Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -35,10 +32,7 @@ A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das de
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/mongodb-e-docker/</guid>
-      <description>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.
-Antes de Seguir&amp;hellip; Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.
-A Situação Eu queria usar o mongosh via terminal em uma imagem Docker, para executar comandos apenas via linha de comando.
-Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongodb-community-server. Porém, ao executá-la, percebi que o entrypoint (comando configurado para iniciar a execução da imagem) já estava definido para inicializar o banco de dados, o que impedia de usar o mongosh &amp;ldquo;de cara&amp;rdquo;.</description>
+      <description>&lt;p&gt;Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -47,9 +41,9 @@ Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongod
       <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
-      <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
-Ao final deste texto, você poderá:
-Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+      <description>&lt;p&gt;Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL
+através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar
+esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -58,8 +52,12 @@ Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em
       <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/mysqldump-de-um-container-docker/</guid>
-      <description>Este texto é uma tradução de um escrito que fiz em 2016, em inglês, e até hoje ainda recebe comentários. Por isso, decidi traduzir para Português do Brasil, mas, se quiser conferir o original, o link é este aqui. Para melhorar o entendimento, vou adicionar alguns comentários e explicações a mais, que possam enriquecer as informações.
-Antes de prosseguir Este tutorial parte do princípio que você tem Docker instalado corretamente, com pelo menos uma imagem do banco de dados MySQL, em um ambiente do SO Linux.</description>
+      <description>&lt;p&gt;Este texto é uma tradução de um escrito que fiz em 2016, em inglês, e até hoje
+ainda recebe comentários. Por isso, decidi traduzir para Português do Brasil,
+mas, se quiser conferir o original, o link é &lt;a href=&#34;https://gist.github.com/devdrops/c59ee84504d128a7913a480b1191d66e&#34;&gt;este
+aqui&lt;/a&gt;. Para
+melhorar o entendimento, vou adicionar alguns comentários e explicações a mais,
+que possam enriquecer as informações.&lt;/p&gt;</description>
     </item>
     
   </channel>

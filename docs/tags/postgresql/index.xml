@@ -13,9 +13,8 @@
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</guid>
-      <description>Este texto serve como um complemento a um texto anterior daqui do blog, PostgreSQL: Dicas para Uso de Arquivos SQL.
-Antes de Prosseguir Esse texto oferece uma abordagem do PostgreSQL com imagem Docker. Caso esse não seja o seu caso, recomendo conferir a documentação do banco de dados e/ou das ferramentas do ambiente que você está usando.
-A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado para a criação do meu banco de dados, semelhante ao arquivo descrito no post citado acima.</description>
+      <description>&lt;p&gt;Este texto serve como um complemento a um texto anterior daqui do blog, &lt;a href=&#34;https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/&#34;&gt;PostgreSQL: Dicas para Uso de Arquivos
+SQL&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -24,9 +23,9 @@ A Situação Na criação de um projeto, eu já tinha um arquivo SQL preparado p
       <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
-      <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
-Ao final deste texto, você poderá:
-Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+      <description>&lt;p&gt;Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL
+através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar
+esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!&lt;/p&gt;</description>
     </item>
     
   </channel>

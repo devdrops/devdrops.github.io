@@ -1,11 +1,13 @@
 ---
 title: "MySQL + Windows: Command Line Tips"
 date: 2014-03-29
-tags: ['MySQL', 'Windows']
+tags: ['MySQL', 'Windows', 'en-US']
 draft: false
 ---
 
 On this post, I'll share some handy [MySQL](http://www.mysql.com/) commands I've been through in the last months, and now they're a essential part of my daily work ~~and I'm writing them down to never forget them anymore ;-)~~.
+
+<!--more-->
 
 >**Important**: none of these commands below will work unless you've properly have both root access and MySQL command line tools configured on your PATH environment variable.
 

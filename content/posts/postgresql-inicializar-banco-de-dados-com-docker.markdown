@@ -1,11 +1,14 @@
 ---
 title: "PostgreSQL: Inicializar Banco de Dados com Docker"
 date: 2023-10-24
-tags: ['PostgreSQL', 'Docker']
+tags: ['PostgreSQL', 'Docker', 'pt-BR']
 draft: false
 ---
 
-Este texto serve como um complemento a um texto anterior daqui do blog, [PostgreSQL: Dicas para Uso de Arquivos SQL]().
+Este texto serve como um complemento a um texto anterior daqui do blog, [PostgreSQL: Dicas para Uso de Arquivos
+SQL](/posts/postgresql-dicas-para-uso-de-arquivos-sql/).
+
+<!--more-->
 
 ## Antes de Prosseguir
 

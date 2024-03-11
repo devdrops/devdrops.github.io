@@ -13,10 +13,7 @@
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/mongodb-e-docker/</guid>
-      <description>Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.
-Antes de Seguir&amp;hellip; Todos os comandos abaixo foram feitos em ambiente Linux (no caso, Linux Mint), usando apenas Docker.
-A Situação Eu queria usar o mongosh via terminal em uma imagem Docker, para executar comandos apenas via linha de comando.
-Fui atrás de uma imagem que tivesse o que precisava, e escolhi a mongodb/mongodb-community-server. Porém, ao executá-la, percebi que o entrypoint (comando configurado para iniciar a execução da imagem) já estava definido para inicializar o banco de dados, o que impedia de usar o mongosh &amp;ldquo;de cara&amp;rdquo;.</description>
+      <description>&lt;p&gt;Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,7 +1,7 @@
 ---
 title: "Devagar e Longe"
 date: 2020-11-12
-tags: ['Carreira']
+tags: ['Carreira', 'pt-BR']
 draft: true
 ---
 

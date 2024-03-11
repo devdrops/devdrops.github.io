@@ -13,9 +13,7 @@
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</guid>
-      <description>Este texto faz parte de uma série de 3 materiais no assunto:
-Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.15.6 linux/amd64, obtida pela imagem oficial da linguagem Go no Docker Hub.
-Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da ferramenta CLI.</description>
+      <description>&lt;p&gt;Este texto faz parte de uma série de 3 materiais no assunto:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -24,9 +22,8 @@ Dando sequência do artigo anterior, veremos mais detalhes de outros comandos da
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</guid>
-      <description>Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de comandos disponíveis pela ferramenta CLI Go.
-Este texto faz parte de uma série de 3 materiais no assunto:
-Parte 1: bug, build, clean e doc Parte 2: env, fix, fmt, generate, get e install Parte 3: list, mod, run, test, tool, version e vet Vale destacar que toda a documentação de referência utilizada foi baseada na versão 1.</description>
+      <description>&lt;p&gt;Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de
+comandos disponíveis pela ferramenta CLI &lt;strong&gt;Go&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

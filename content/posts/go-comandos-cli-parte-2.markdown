@@ -1,11 +1,13 @@
 ---
 title: "Go: comandos CLI, parte 2"
 date: 2021-01-20
-tags: ['Go']
+tags: ['Go', 'pt-BR']
 draft: false
 ---
 
 Este texto faz parte de uma série de 3 materiais no assunto:
+
+<!--more-->
 
 - Parte 1: [`bug`, `build`, `clean` e `doc`](/posts/go-comandos-cli-parte-1/)
 - Parte 2: [`env`, `fix`, `fmt`, `generate`, `get` e `install`](/posts/go-comandos-cli-parte-2/)

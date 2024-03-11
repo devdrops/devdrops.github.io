@@ -1,7 +1,7 @@
 ---
 title: "Mysqldump de um container Docker"
 date: 2022-05-17
-tags: ['MySQL', 'Docker']
+tags: ['MySQL', 'Docker', 'pt-BR']
 draft: false
 ---
 
@@ -11,6 +11,8 @@ mas, se quiser conferir o original, o link é [este
 aqui](https://gist.github.com/devdrops/c59ee84504d128a7913a480b1191d66e). Para
 melhorar o entendimento, vou adicionar alguns comentários e explicações a mais,
 que possam enriquecer as informações.
+
+<!--more-->
 
 ---
 

@@ -1,11 +1,13 @@
 ---
 title: "Using PHP CS Fixer on NetBeans 8.0"
 date: 2014-09-16
-tags: ['PHP', 'NetBeans', 'PHP CS Fixer']
+tags: ['PHP', 'NetBeans', 'PHP CS Fixer', 'en-US']
 draft: false
 ---
 
 Recently on it's version 8.0 (note: there's a new stable release, [NetBeans 8.0.1](https://netbeans.org/downloads/) at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for  [PHP Coding Standards Fixer](http://cs.sensiolabs.org/) (A.K.A. PHP CS Fixer).
+
+<!--more-->
 
 ### What is the PHP CS Fixer: a brief explanation
 

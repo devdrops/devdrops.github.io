@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on DevDrops</title>
-    <link>https://devdrops.github.io/posts/</link>
-    <description>Recent content in Posts on DevDrops</description>
+    <title>pt-BR on DevDrops</title>
+    <link>https://devdrops.github.io/tags/pt-br/</link>
+    <description>Recent content in pt-BR on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/pt-br/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tmux: Movendo Janelas entre Sessões</title>
       <link>https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/</link>

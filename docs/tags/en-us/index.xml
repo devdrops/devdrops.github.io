@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PHP on DevDrops</title>
-    <link>https://devdrops.github.io/tags/php/</link>
-    <description>Recent content in PHP on DevDrops</description>
+    <title>en-US on DevDrops</title>
+    <link>https://devdrops.github.io/tags/en-us/</link>
+    <description>Recent content in en-US on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Tue, 18 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Autenticação http-basic no Composer</title>
-      <link>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</link>
-      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</guid>
-      <description>&lt;p&gt;Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Wed, 06 May 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/en-us/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xdebug, NetBeans and Vagrant</title>
       <link>https://devdrops.github.io/posts/xdebug-netbeans-and-vagrant/</link>
@@ -32,6 +23,15 @@
       
       <guid>https://devdrops.github.io/posts/using-php-cs-fixer-on-netbeans-8.0/</guid>
       <description>&lt;p&gt;Recently on it&amp;rsquo;s version 8.0 (note: there&amp;rsquo;s a new stable release, &lt;a href=&#34;https://netbeans.org/downloads/&#34;&gt;NetBeans 8.0.1&lt;/a&gt; at the present moment), the NetBeans IDE highlighted some new resources for PHP projects. One of the most interesting is the extension for  &lt;a href=&#34;http://cs.sensiolabs.org/&#34;&gt;PHP Coding Standards Fixer&lt;/a&gt; (A.K.A. PHP CS Fixer).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL &#43; Windows: Command Line Tips</title>
+      <link>https://devdrops.github.io/posts/mysql-windows-command-line-tips/</link>
+      <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/mysql-windows-command-line-tips/</guid>
+      <description>&lt;p&gt;On this post, I&amp;rsquo;ll share some handy &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; commands I&amp;rsquo;ve been through in the last months, and now they&amp;rsquo;re a essential part of my daily work &lt;del&gt;and I&amp;rsquo;m writing them down to never forget them anymore ;-)&lt;/del&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>

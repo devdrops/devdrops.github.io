@@ -1,11 +1,13 @@
 ---
 title: "Autenticação http-basic no Composer"
 date: 2023-07-18
-tags: ['PHP', 'Composer', 'Docker', 'Docker-Compose']
+tags: ['PHP', 'Composer', 'Docker', 'Docker-Compose', 'pt-BR']
 draft: false
 ---
 
 Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker :wink:
+
+<!--more-->
 
 ## Antes de Seguir...
 

@@ -1,7 +1,7 @@
 ---
 title: "tmux: Migrando de 2.3.* para 3.*"
 date: 2020-10-04
-tags: ['tmux']
+tags: ['tmux', 'pt-BR']
 draft: false
 ---
 
@@ -11,6 +11,8 @@ Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pess
 de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por
 padrão tanto do _tmux_ como do _tmate_ são bem mais recentes do que eu estava
 usando:
+
+<!--more-->
 
 ```bash
 ~ apt-cache show tmux

@@ -1,11 +1,13 @@
 ---
 title: "Vim: Definindo syntax Sem Mudar filetype"
 date: 2023-07-24
-tags: ['Vim']
+tags: ['Vim', 'pt-BR']
 draft: false
 ---
 
 Essa é uma dica rápida para quem usa [Vim](https://www.vim.org/) no dia a dia.
+
+<!--more-->
 
 ## A Situação
 

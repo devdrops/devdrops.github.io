@@ -1,13 +1,15 @@
 ---
 title: "PostgreSQL: Dicas para Uso de Arquivos SQL"
 date: 2022-08-03
-tags: ['PostgreSQL', 'Docker', 'Docker-Compose']
+tags: ['PostgreSQL', 'Docker', 'Docker-Compose', 'pt-BR']
 draft: false
 ---
 
 Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL
 através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar
 esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
+
+<!--more-->
 
 Ao final deste texto, você poderá:
 

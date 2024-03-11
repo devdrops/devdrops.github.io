@@ -13,9 +13,7 @@
       <pubDate>Sun, 22 Dec 2013 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/using-php-codesniffer-on-netbeans-7.4/</guid>
-      <description>In this first post, I&amp;rsquo;ll share my basic experience in how to use an important tool to assure and verify your code quality.
-Special thanks to Tomas Mysik and Adam McAuley for their efforts on Bugzilla and the NetBeans PHP Mailing List, which helped me a lot on how to use these combined tools, and then create this tutorial.
-Requirements PHP &amp;gt;= 5.3 NetBeans 7.4 PEAR Note: I&amp;rsquo;m assuming you already have an HTTP Server (like Apache) installed and ready for action.</description>
+      <description>&lt;p&gt;In this first post, I&amp;rsquo;ll share my basic experience in how to use an important tool to assure and verify your code quality.&lt;/p&gt;</description>
     </item>
     
   </channel>

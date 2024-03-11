@@ -1,12 +1,14 @@
 ---
 title: "Go: comandos CLI, parte 1"
 date: 2021-01-02
-tags: ['Go']
+tags: ['Go', 'pt-BR']
 draft: false
 ---
 
 Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de
 comandos disponíveis pela ferramenta CLI **Go**.
+
+<!--more-->
 
 ![](/2021/01/02/215px-Go_Logo_Blue.svg.png#center)
 

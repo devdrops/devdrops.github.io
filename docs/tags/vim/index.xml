@@ -13,9 +13,7 @@
       <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/vim-definindo-syntax-sem-mudar-filetype/</guid>
-      <description>Essa é uma dica rápida para quem usa Vim no dia a dia.
-A Situação Uns tempos atrás, estava observando um projeto feito com TypeScript + React, com arquivos .tsx. No meu caso, minha instalação de Vim não sabia identificar a sintaxe (syntax) desses arquivos, deixando tudo com cara de texto comum.
-Como gosto de usar estilo nos arquivos, comecei a pensar em como poderia trazer a sintaxe sem sobrescrever o tipo de arquivo (filetype), que o Vim reconhecia como typescriptreact.</description>
+      <description>&lt;p&gt;Essa é uma dica rápida para quem usa &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt; no dia a dia.&lt;/p&gt;</description>
     </item>
     
   </channel>

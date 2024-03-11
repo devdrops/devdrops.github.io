@@ -1,11 +1,13 @@
 ---
 title: "MongoDB e Docker"
 date: 2023-06-27
-tags: ['MongoDB', 'Docker', 'mongosh']
+tags: ['MongoDB', 'Docker', 'mongosh', 'pt-BR']
 draft: false
 ---
 
 Anotação simples e rápida de como usei MongoDB com Docker apenas para aprendizado.
+
+<!--more-->
 
 ## Antes de Seguir...
 

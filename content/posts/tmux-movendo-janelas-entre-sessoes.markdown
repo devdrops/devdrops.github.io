@@ -1,11 +1,13 @@
 ---
 title: "tmux: Movendo Janelas entre Sessões"
 date: 2024-03-04
-tags: ['tmux']
+tags: ['tmux', 'pt-BR']
 draft: false
 ---
 
 Dica quente para quem usa [tmux](https://github.com/tmux/tmux).
+
+<!--more-->
 
 ## A Situação
 

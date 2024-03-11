@@ -1,11 +1,13 @@
 ---
 title: "Xdebug, NetBeans and Vagrant"
 date: 2015-05-06
-tags: ['PHP', 'Xdebug', 'NetBeans', 'Vagrant']
+tags: ['PHP', 'Xdebug', 'NetBeans', 'Vagrant', 'en-US']
 draft: false
 ---
 
 Hi! In this short post I'll describe the steps I've made, with the great help of a work colleague, on how to achieve the combination of these great tools together: **NetBeans**, **Xdebug** and **Vagrant**.
+
+<!--more-->
 
 The following steps were executed in a vagrant box using Ubuntu, and with the Yosemite as the OS for the hosting machine.
 

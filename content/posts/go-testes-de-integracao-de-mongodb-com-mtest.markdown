@@ -1,7 +1,7 @@
 ---
 title: "[Go]: testes de integração de MongoDB com mtest"
 date: 2022-01-05
-tags: ['Go', 'MongoDB']
+tags: ['Go', 'MongoDB', 'pt-BR']
 draft: true
 ---
 

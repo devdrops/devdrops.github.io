@@ -13,9 +13,7 @@
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</guid>
-      <description>Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉
-Antes de Seguir&amp;hellip; As instruções aqui informam dicas de como usar autenticação para download de dependências com Composer. Meu foco maior é usando Docker e Docker Compose, mas os comandos em essência podem ser usados em qualquer ambiente.
-A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das dependências a instalar com Composer exigia autenticação para o download.</description>
+      <description>&lt;p&gt;Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -24,9 +22,9 @@ A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das de
       <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/postgresql-dicas-para-uso-de-arquivos-sql/</guid>
-      <description>Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!
-Ao final deste texto, você poderá:
-Criar banco de dados e tabelas apenas se os mesmos não existirem; Selecionar em qual banco de dados as tabelas serão criadas; Trabalhar com campos incrementais e valores padrão; Trabalhar com timezones; Trabalhar com criação automática de UUIDs; Tudo isso em um só arquivo SQL, para importar e criar o que você precisa.</description>
+      <description>&lt;p&gt;Recentemente, tive que fazer algumas operações com banco de dados PostgreSQL
+através de arquivos SQL, e pude aprender um bocado de dicas. Vou compartilhar
+esses conhecimentos abaixo, espero que te ajude também - como me ajudaram muito!&lt;/p&gt;</description>
     </item>
     
   </channel>

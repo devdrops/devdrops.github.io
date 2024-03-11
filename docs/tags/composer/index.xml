@@ -13,9 +13,7 @@
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/autenticacao-http-basic-no-composer/</guid>
-      <description>Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉
-Antes de Seguir&amp;hellip; As instruções aqui informam dicas de como usar autenticação para download de dependências com Composer. Meu foco maior é usando Docker e Docker Compose, mas os comandos em essência podem ser usados em qualquer ambiente.
-A Situação Uma vez, trabalhando com um projeto em PHP, observei que uma das dependências a instalar com Composer exigia autenticação para o download.</description>
+      <description>&lt;p&gt;Segue uma dica rápida, com uso tanto para ambiente com ou sem Docker 😉&lt;/p&gt;</description>
     </item>
     
   </channel>

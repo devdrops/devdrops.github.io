@@ -13,9 +13,7 @@
       <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/tmux-movendo-janelas-entre-sessoes/</guid>
-      <description>Dica quente para quem usa tmux.
-A Situação Normalmente, eu trabalho com várias sessões, uma para cada projeto e cada uma com as suas janelas. Eu criei uma sessão para um projeto (vou chamá-la de A), e nela eu tinha as seguintes janelas, cada uma para a sua finalidade:
-└── A ├── Janela 0: Vim ├── Janela 1: Comandos de terminal ├── Janela 2: Comandos de git └── Janela 3: Monitorando imagens Docker Só que, por engano, eu criei uma nova janela com um comando que eu gostaria de organizar em outra sessão, só para eu não me confundir (uma sessão por projeto), ficando assim:</description>
+      <description>&lt;p&gt;Dica quente para quem usa &lt;a href=&#34;https://github.com/tmux/tmux&#34;&gt;tmux&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -24,9 +22,11 @@ A Situação Normalmente, eu trabalho com várias sessões, uma para cada projet
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/tmux-migrando-de-2.3-para-3/</guid>
-      <description>Olá!
-Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por padrão tanto do tmux como do tmate são bem mais recentes do que eu estava usando:
-~ apt-cache show tmux # Entre várias informações úteis, olha a versão logo ali: Package: tmux Architecture: amd64 Version: 3.0a-2 ~ apt-cache show tmate # E a versão do tmate também: Package: tmate Architecture: amd64 Version: 2.</description>
+      <description>&lt;p&gt;Olá!&lt;/p&gt;
+&lt;p&gt;Há poucos dias atrás, atualizei a versão do Linux Mint no meu computador pessoal
+de 19 para 20, e fiquei feliz que nessa atualização a versão oferecida por
+padrão tanto do &lt;em&gt;tmux&lt;/em&gt; como do &lt;em&gt;tmate&lt;/em&gt; são bem mais recentes do que eu estava
+usando:&lt;/p&gt;</description>
     </item>
     
   </channel>
