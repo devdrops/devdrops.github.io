@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>404 Page not found &middot; DevDrops</title>
+  <title>Ops! 404 &middot; DevDrops</title>
   <meta name="description" content="" />
 
   
@@ -50,15 +50,31 @@
 </aside>
 
     <main class="content container">
-    
+    <div class="post">
+  <h1>Ops! 404</h1>
+  
+  
+
+  
+  
+  
+
+  
+{{ define "main" }}
   <main id="main">
     <div>
-      <h2>Ops! 404 =S</h2>
       <p class="lead">
-        A página foi substituída ou deixou de existir. <a href="/">Volte para o início</a>.
+        A página foi substituída ou deixou de existir. <a href="{{ "" | relURL }}">Volte para o início</a>.
       </p>
     </div>
   </main>
+{{ end }}
+
+</div>
+
+  
+  
+
 
     </main>
 

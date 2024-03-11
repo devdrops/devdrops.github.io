@@ -1,2 +1,11 @@
-<h1>Eita =S</h1>
-<p class="lead">A página foi substituída ou deixou de existir. <a href="/">Volte para o início</a>.</p>
+{{ define "main" }}
+  <main id="main">
+    <div>
+      <h2>Ops! 404 =S</h2>
+      <p class="lead">
+        A página foi substituída ou deixou de existir. <a href="{{ "" | relURL }}">Volte para o início</a>.
+      </p>
+    </div>
+  </main>
+{{ end }}
+
