@@ -6,11 +6,20 @@
     <description>Recent content in Tags on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go</title>
+      <link>https://devdrops.github.io/tags/go/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>pt-BR</title>
       <link>https://devdrops.github.io/tags/pt-br/</link>
-      <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/tags/pt-br/</guid>
       <description></description>
@@ -85,15 +94,6 @@
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/tags/mongodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mongosh</title>
-      <link>https://devdrops.github.io/tags/mongosh/</link>
-      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/tags/mongosh/</guid>
       <description></description>
     </item>
     

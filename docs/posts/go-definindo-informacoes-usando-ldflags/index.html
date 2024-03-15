@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Go: Definindo informações usando ldflags &middot; DevDrops</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/authorbox.min.css">
+  <link type="text/css" rel="stylesheet" href="https://devdrops.github.io/css/position.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  
+</head>
+
+  <body class=" ">
+  
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://devdrops.github.io/"><h1>DevDrops</h1></a>
+      <p class="lead">
+      Site pessoal sobre tecnologia e outras coisas mais ;D
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/about/"> Sobre </a></li><li><a href="/posts/"> Artigos </a></li><li><a href="/talks/"> Palestras </a></li><li><a href="/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>Davi Moreira - @devdrops<br /> &copy; 2024. Todos os direitos reservados.</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <section id="main">
+  <div class="post">
+    <h1 id="title">Go: Definindo informações usando ldflags</h1>
+    <div>
+      
+      
+      <h4 id="date" class="post-date">2024-03-15</h4>
+      
+
+      
+      
+      
+      <p id="tags">
+      <i>
+        Tags:
+        
+        <a href="/tags/go/">Go</a>, 
+        <a href="/tags/pt-br/">pt-BR</a>
+      </i>
+      </p>
+      
+
+      <article id="content">
+        <p>Como definir informações como versão, datas etc usando <code>-ldflags</code>.</p>
+<p><strong>Obs</strong>: todo o código usado aqui está <a href="https://github.com/devdrops/ldflags">neste repositório</a>.</p>
+<h2 id="a-situação">A Situação</h2>
+<p>Estava começando um novo projeto em Go, e decidi ter disponíveis, nos logs, informações a respeito da minha API, como
+qual a versão, data de quando foi feito o binário etc. Algo como o exemplo abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;level&#34;</span>: <span style="color:#ed9d13">&#34;info&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;ts&#34;</span>: <span style="color:#3677a9">1710513266.1966991</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;caller&#34;</span>: <span style="color:#ed9d13">&#34;code/main.go:12&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;msg&#34;</span>: <span style="color:#ed9d13">&#34;application up and running&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;app_name&#34;</span>: <span style="color:#ed9d13">&#34;Payments API&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;app_version&#34;</span>: <span style="color:#ed9d13">&#34;develop&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;app_build_at&#34;</span>: <span style="color:#ed9d13">&#34;Today&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="a-solução">A Solução</h2>
+<p>Uma forma de atingir isso é usando <code>-ldflags</code> no momento de criação do binário (a famosa <em>&ldquo;build&rdquo;</em>). Em Go, podemos usar
+esse recurso para definir informações únicas nessa etapa, que ficarão marcadas no binário final.</p>
+<p>Para essa tarefa, utilizei <a href="https://github.com/uber-go/zap">go.uber.org/zap</a> para logs (mas pode ser qualquer outra lib
+da sua escolha).</p>
+<p>Primeiro, criei o lugar onde as informações estarão:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">package</span> appinfo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">const</span> (
+</span></span><span style="display:flex;"><span>    AppName <span style="color:#6ab825;font-weight:bold">string</span> = <span style="color:#ed9d13">&#34;Payments API&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">var</span> (
+</span></span><span style="display:flex;"><span>    AppVersion <span style="color:#6ab825;font-weight:bold">string</span> = <span style="color:#ed9d13">&#34;develop&#34;</span>
+</span></span><span style="display:flex;"><span>    AppBuildAt <span style="color:#6ab825;font-weight:bold">string</span> = <span style="color:#ed9d13">&#34;Today&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Como não quero mudar o valor de <code>AppName</code>, criei-o como uma constante. Mas os valores de <code>AppVersion</code> e <code>AppBuildAt</code>
+serão alterados, no entanto, defini valores apenas para usar como padrão (por exemplo, executando apenas com <code>go run</code>).</p>
+<p>Os logs, providenciei sem muitos detalhes, porém adicionei os valores de informação como campos padrão nos logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">package</span> logger
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;github.com/devdrops/ldflags/appinfo&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;go.uber.org/zap&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ed9d13">&#34;go.uber.org/zap/zapcore&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">func</span> <span style="color:#447fcf">InitGlobalLogger</span>() {
+</span></span><span style="display:flex;"><span>    logger, _ := zap.<span style="color:#447fcf">NewProduction</span>(zap.<span style="color:#447fcf">AddCaller</span>(), zap.<span style="color:#447fcf">AddStacktrace</span>(zapcore.ErrorLevel))
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">defer</span> logger.<span style="color:#447fcf">Sync</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    logger = logger.<span style="color:#447fcf">With</span>(
+</span></span><span style="display:flex;"><span>        zap.<span style="color:#447fcf">String</span>(<span style="color:#ed9d13">&#34;app_name&#34;</span>, appinfo.AppName),
+</span></span><span style="display:flex;"><span>        zap.<span style="color:#447fcf">String</span>(<span style="color:#ed9d13">&#34;app_version&#34;</span>, appinfo.AppVersion),
+</span></span><span style="display:flex;"><span>        zap.<span style="color:#447fcf">String</span>(<span style="color:#ed9d13">&#34;app_build_at&#34;</span>, appinfo.AppBuildAt),
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    zap.<span style="color:#447fcf">ReplaceGlobals</span>(logger)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>E para finalizar, criei a entrada do projeto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	  <span style="color:#ed9d13">&#34;github.com/devdrops/ldflags/logger&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	  <span style="color:#ed9d13">&#34;go.uber.org/zap&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">func</span> <span style="color:#447fcf">main</span>() {
+</span></span><span style="display:flex;"><span>	  logger.<span style="color:#447fcf">InitGlobalLogger</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	  zap.<span style="color:#447fcf">L</span>().<span style="color:#447fcf">Info</span>(<span style="color:#ed9d13">&#34;application up and running&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Agora, usando <code>-ldflags</code> no momento de <em>&ldquo;build&rdquo;</em>, eu posso definir valores diferentes para <code>AppVersion</code> e <code>AppBuildAt</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>go build -ldflags &#34;-X github.com/devdrops/ldflags/appinfo.AppBuildAt=$(date +%Y-%m-%dT%H:%M:%S_GMT%Z) -X github.com/devdrops/ldflags/appinfo.AppVersion=$GIT_TAG&#34; main.go
+</span></span></code></pre></div><p><strong>Nota</strong>: <code>$GIT_TAG</code> pode ser qualquer variável que tenha a referência que você quer (commit, tag etc).</p>
+<p>Com isso, o resultado de <code>go build</code> vai exibir o log com as informações passadas, como abaixo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;level&#34;</span>: <span style="color:#ed9d13">&#34;info&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;ts&#34;</span>: <span style="color:#3677a9">1710513834.6334388</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;caller&#34;</span>: <span style="color:#ed9d13">&#34;code/main.go:12&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;msg&#34;</span>: <span style="color:#ed9d13">&#34;application up and running&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;app_name&#34;</span>: <span style="color:#ed9d13">&#34;Payments API&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;app_version&#34;</span>: <span style="color:#ed9d13">&#34;v1.2.3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">&#34;app_build_at&#34;</span>: <span style="color:#ed9d13">&#34;2024-03-15T14:43:41_GMTUTC&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div>
+  
+  <i>Post anterior: <a class="previous" href="/posts/tmux-movendo-janelas-entre-sessoes/"> tmux: Movendo Janelas entre Sessões</a></i>
+  
+  <br />
+  
+  <br />
+  <br />
+</div>
+
+
+
+
+<div class="authorbox clearfix">
+  <figure class="authorbox__avatar">
+    <img alt="Davi Marcondes Moreira avatar" src="/me/me.jpeg" class="avatar" height="90" width="90">
+  </figure>
+  <div class="authorbox__header">
+    <span class="authorbox__name">Sobre Davi Marcondes Moreira</span>
+  </div>
+  <div class="authorbox__description">
+    Desenvolvedor de software, palestrante, evangelista de trabalho remoto e home office, amante de MTB/XCO e entusiasta de café. Ele/Dele.
+    <i><a href="/about">Leia mais</a></i>
+  </div>
+</div>
+
+
+
+
+    </main>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77125737-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  </body>
+</html>

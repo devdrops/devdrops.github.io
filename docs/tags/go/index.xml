@@ -6,7 +6,16 @@
     <description>Recent content in Go on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go: Definindo informações usando ldflags</title>
+      <link>https://devdrops.github.io/posts/go-definindo-informacoes-usando-ldflags/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/go-definindo-informacoes-usando-ldflags/</guid>
+      <description>&lt;p&gt;Como definir informações como versão, datas etc usando &lt;code&gt;-ldflags&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Go: comandos CLI, parte 2</title>
       <link>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</link>
