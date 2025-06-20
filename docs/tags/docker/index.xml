@@ -6,7 +6,18 @@
     <description>Recent content in Docker on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RabbitMQ: Carregando Definições na Inicialização</title>
+      <link>https://devdrops.github.io/posts/rabbitmq-definicoes-na-inicializacao/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/rabbitmq-definicoes-na-inicializacao/</guid>
+      <description>Dica rápida no uso de RabbitMQ, via Docker, para facilitar o trabalho ao criar um ambiente.
+O Problema Você tem um projeto que precisa publicar mensagens (vamos chamá-lo de producer). É comum que, no momento de conexão, esse producer seja responsável em criar a exchange, a queue, o binding, ou seja, tudo o que é necessário para que a publicação de mensagens ocorra com sucesso.
+Isso pode trazer alguns problemas, como por exemplo:</description>
+    </item>
+    
     <item>
       <title>PostgreSQL: Inicializar Banco de Dados com Docker</title>
       <link>https://devdrops.github.io/posts/postgresql-inicializar-banco-de-dados-com-docker/</link>

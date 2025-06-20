@@ -6,7 +6,18 @@
     <description>Recent content in pt-BR on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/pt-br/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/pt-br/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RabbitMQ: Carregando Definições na Inicialização</title>
+      <link>https://devdrops.github.io/posts/rabbitmq-definicoes-na-inicializacao/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/rabbitmq-definicoes-na-inicializacao/</guid>
+      <description>Dica rápida no uso de RabbitMQ, via Docker, para facilitar o trabalho ao criar um ambiente.
+O Problema Você tem um projeto que precisa publicar mensagens (vamos chamá-lo de producer). É comum que, no momento de conexão, esse producer seja responsável em criar a exchange, a queue, o binding, ou seja, tudo o que é necessário para que a publicação de mensagens ocorra com sucesso.
+Isso pode trazer alguns problemas, como por exemplo:</description>
+    </item>
+    
     <item>
       <title>Go: Definindo informações usando ldflags</title>
       <link>https://devdrops.github.io/posts/go-definindo-informacoes-usando-ldflags/</link>
@@ -94,16 +105,6 @@ que possam enriquecer as informações.&lt;/p&gt;</description>
       
       <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</guid>
       <description>&lt;p&gt;Este texto faz parte de uma série de 3 materiais no assunto:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Go: comandos CLI, parte 1</title>
-      <link>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</link>
-      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-1/</guid>
-      <description>&lt;p&gt;Por curiosidade e vontade de aprender mais, fiquei intrigado com a quantidade de
-comandos disponíveis pela ferramenta CLI &lt;strong&gt;Go&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

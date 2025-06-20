@@ -6,7 +6,34 @@
     <description>Recent content in Tags on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://devdrops.github.io/tags/docker/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pt-BR</title>
+      <link>https://devdrops.github.io/tags/pt-br/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/tags/pt-br/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ</title>
+      <link>https://devdrops.github.io/tags/rabbitmq/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Go</title>
       <link>https://devdrops.github.io/tags/go/</link>
@@ -17,29 +44,11 @@
     </item>
     
     <item>
-      <title>pt-BR</title>
-      <link>https://devdrops.github.io/tags/pt-br/</link>
-      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/tags/pt-br/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tmux</title>
       <link>https://devdrops.github.io/tags/tmux/</link>
       <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/tags/tmux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://devdrops.github.io/tags/docker/</link>
-      <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -85,15 +94,6 @@
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MongoDB</title>
-      <link>https://devdrops.github.io/tags/mongodb/</link>
-      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/tags/mongodb/</guid>
       <description></description>
     </item>
     
