@@ -7,6 +7,8 @@ draft: false
 
 Dica rápida no uso de RabbitMQ, via Docker, para facilitar o trabalho ao criar um ambiente.
 
+<!--more-->
+
 ## O Problema
 
 Você tem um projeto que precisa publicar mensagens (vamos chamá-lo de _producer_). É comum que, no momento de conexão,

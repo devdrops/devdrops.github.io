@@ -13,9 +13,7 @@
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
       
       <guid>https://devdrops.github.io/posts/rabbitmq-definicoes-na-inicializacao/</guid>
-      <description>Dica rápida no uso de RabbitMQ, via Docker, para facilitar o trabalho ao criar um ambiente.
-O Problema Você tem um projeto que precisa publicar mensagens (vamos chamá-lo de producer). É comum que, no momento de conexão, esse producer seja responsável em criar a exchange, a queue, o binding, ou seja, tudo o que é necessário para que a publicação de mensagens ocorra com sucesso.
-Isso pode trazer alguns problemas, como por exemplo:</description>
+      <description>&lt;p&gt;Dica rápida no uso de RabbitMQ, via Docker, para facilitar o trabalho ao criar um ambiente.&lt;/p&gt;</description>
     </item>
     
     <item>
