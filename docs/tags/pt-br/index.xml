@@ -6,7 +6,16 @@
     <description>Recent content in pt-BR on DevDrops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/pt-br/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://devdrops.github.io/tags/pt-br/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Criando 1 Milhão de Linhas no PostgreSQL</title>
+      <link>https://devdrops.github.io/posts/criando-um-milhao-de-linhas-no-postgresql/</link>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdrops.github.io/posts/criando-um-milhao-de-linhas-no-postgresql/</guid>
+      <description>&lt;p&gt;Aqui eu mostro como criar 1 milhão de linhas em uma tabela do PostgreSQL, usando apenas o próprio PostgreSQL 😉&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>RabbitMQ: Carregando Definições na Inicialização</title>
       <link>https://devdrops.github.io/posts/rabbitmq-definicoes-na-inicializacao/</link>
@@ -94,15 +103,6 @@ mas, se quiser conferir o original, o link é &lt;a href=&#34;https://gist.githu
 aqui&lt;/a&gt;. Para
 melhorar o entendimento, vou adicionar alguns comentários e explicações a mais,
 que possam enriquecer as informações.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Go: comandos CLI, parte 2</title>
-      <link>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdrops.github.io/posts/go-comandos-cli-parte-2/</guid>
-      <description>&lt;p&gt;Este texto faz parte de uma série de 3 materiais no assunto:&lt;/p&gt;</description>
     </item>
     
   </channel>
